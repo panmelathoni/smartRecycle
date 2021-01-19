@@ -1,0 +1,31 @@
+
+<ion-header>
+  <ion-toolbar color="mango">
+    <ion-title>Burguer Eats - Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding='true'>
+  <form>
+    <ion-list>
+      <ion-item>
+        <!-- <img src="assets/icon/burguer1.png" class="image-center" /> -->
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+  
+        <ion-input autocomplete="off" type="text" name="userName" [(ngModel)]="login.userName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input autocomplete="off" type="password" name="password" [(ngModel)]="login.password"></ion-input>
+      </ion-item>
+
+      <ion-item lines='none' routerLink='register' (click)="register()">
+        <a>Create a New Account</a> 
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" share="round" color="success" (click)="loginAction()">Login</ion-button>
+  </form>
+</ion-content>
