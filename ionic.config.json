@@ -1,7 +1,8 @@
 {
   "name": "smart_recicle",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

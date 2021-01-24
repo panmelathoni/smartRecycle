@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'closest',
+    loadChildren: () => import('./pages/closest-recycle-points/closest-recycle-points.module').then( m => m.ClosestRecyclePointsPageModule)
+  },
   
 ];
 
