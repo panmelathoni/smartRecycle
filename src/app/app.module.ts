@@ -16,8 +16,9 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { authInterceptorProviders } from './utils/auth.Interceptor';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './utils/jwtInterceptor';
+import { ErrorInterceptor } from './utils/errorInterceptor';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     SplashScreen,
     Geolocation,
     NativeGeocoder,
-    authInterceptorProviders,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     HttpClient,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

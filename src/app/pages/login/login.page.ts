@@ -35,8 +35,8 @@ export class LoginPage implements OnInit {
    }
 
   validateInputs() {
-    let userName = this.login.userName.trim();
-    let password = this.login.password.trim();
+    let userName = this.login.userName ? this.login.userName.trim() : '';
+    let password = this.login.password ? this.login.password.trim() : '';
     return (
       this.login.userName &&
       this.login.password &&
@@ -58,11 +58,10 @@ export class LoginPage implements OnInit {
     this.login.fireBaseToken = "";
     this.login.userId = "test";
 
-    console.log(this.login);
     if (this.validateInputs()) {
       this.authenticationService.login(this.login).subscribe(
         (res: any) => {
-          console.log(res)
+
           if (res.authenticated) {
             this.storageService.saveStorage(AuthConstants.AUTH, res.userId);  
             this.storageService.saveStorage(AuthConstants.AUTH_PASS, this.login.password);
@@ -71,13 +70,13 @@ export class LoginPage implements OnInit {
             
                 this.menuCtrl.enable(true);
                 this.toastService.showMessage('Successfully Logged In: ' + res.userName);
-                //this.router.navigate(['users']);
+                this.router.navigate(['categories']);
                 // this.router.navigate(['home', user.name, user.id]);
               
             // this.router.navigate(['home']);
-            this.authenticationService.getUserById(res.userId).subscribe((btfgh : any) => {
-              console.log(btfgh)
-            })
+            // this.authenticationService.getUserById(res.userId).subscribe((btfgh : any) => {
+            //   console.log(btfgh)
+            // })
 
             
           } else {

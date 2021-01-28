@@ -12,77 +12,70 @@ import { Endpoints } from '../utils/api-endpoints';
   providedIn: 'root'
 })
 export class RecycleService {
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': '*',
-      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
-    })
-  };
 
   constructor(private http: HttpClient) { }
 
   getRecycleCategories(): Observable<any> {
     const url = environment.apiUrl + Endpoints.getRecycleCategories;
-    return this.http.get(url, this.httpOptions);
+    console.log("aqui",url)
+    return this.http.get(url);
   }
 
   getMaterialByCategory(): Observable<any> {
     const url = environment.apiUrl + Endpoints.getMaterialByCategory;
-    return this.http.get(url, this.httpOptions);
+    return this.http.get(url);
   }
 
   getHistoryByUser(): Observable<any> {
     const url = environment.apiUrl + Endpoints.getChatHistoryByUser;
-    return this.http.get(url, this.httpOptions);
+    return this.http.get(url);
   }
 
   createMaterial(createMateraildata: Material): Observable<any> {
     const url = environment.apiUrl + Endpoints.createMaterial;
-    return this.http.post(url, createMateraildata, this.httpOptions);
+    return this.http.post(url, createMateraildata);
   }
 
   updateMaterial(updateMaterialdata: Material): Observable<any> {
     const url = environment.apiUrl + Endpoints.updateMaterial;
-    return this.http.put(url, updateMaterialdata, this.httpOptions);
+    return this.http.put(url, updateMaterialdata);
   }
 
   createCategory(createCategoryData: Category): Observable<any> {
     const url = environment.apiUrl + Endpoints.createCategory;
-    return this.http.post(url, createCategoryData, this.httpOptions);
+    return this.http.post(url, createCategoryData);
   }
 
   updateCategory(updateCategorydata: Category): Observable<any> {
     const url = environment.apiUrl + Endpoints.updateCategory;
-    return this.http.put(url, updateCategorydata, this.httpOptions);
+    return this.http.put(url, updateCategorydata);
   }
 
   createRecycleHistory(createRecycleHistoryData: Recycle): Observable<any> {
     const url = environment.apiUrl + Endpoints.createRecycleHistory;
-    return this.http.post(url, createRecycleHistoryData, this.httpOptions);
+    return this.http.post(url, createRecycleHistoryData);
   }
 
   updateRecycleHistory(updateRecycleHistoryData: Recycle): Observable<any> { 
     const url = environment.apiUrl + Endpoints.updateRecycleHistory;
-    return this.http.put(url, updateRecycleHistoryData, this.httpOptions);
+    return this.http.put(url, updateRecycleHistoryData);
   }
 
 
  getRecycleLocals(): Observable<any> {
     const url = environment.apiUrl + Endpoints.getRecycleLocals;
-    return this.http.get(url, this.httpOptions);
+    return this.http.get(url);
   }
 
   createRecycleLocal(createRecycleLocalData: Local): Observable<any> {
     const url = environment.apiUrl + Endpoints.createRecycleLocal;
-    return this.http.post(url, createRecycleLocalData, this.httpOptions);
+    return this.http.post(url, createRecycleLocalData);
   }
 
 
   updateRecycleLocal(updateRecycleLocalData: Local): Observable<any> {
     const url = environment.apiUrl + Endpoints.updateRecycleLocal;
-    return this.http.put(url, updateRecycleLocalData, this.httpOptions);
+    return this.http.put(url, updateRecycleLocalData);
   }
 
 }

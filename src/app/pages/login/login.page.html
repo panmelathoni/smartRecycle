@@ -1,24 +1,41 @@
 
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="mango">
     <ion-title>Burguer Eats - Login</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
+
 
 <ion-content padding='true'>
+
+  <!-- **Logo** -->
+
+    <div class="logo">
+      <img src="" alt="logo" style="width: 50px; height: 60px;">
+    </div>
+
+
   <form>
     <ion-list>
       <ion-item>
         <!-- <img src="assets/icon/burguer1.png" class="image-center" /> -->
       </ion-item>
       <ion-item>
-        <ion-label position="stacked">Email</ion-label>
+      <ion-row>
+        <ion-icon item-left name="mail-outline" class="icon-user-pass"></ion-icon>
+        <ion-label position="stacked"> Email</ion-label>
+      </ion-row>
   
         <ion-input autocomplete="off" type="text" name="userName" [(ngModel)]="login.userName"></ion-input>
+
       </ion-item>
 
       <ion-item>
-        <ion-label position="stacked">Password</ion-label>
+        <ion-row>
+
+          <ion-icon name="lock-closed-outline" class="icon-user-pass"></ion-icon>
+          <ion-label position="stacked">Password</ion-label>
+        </ion-row>
         <ion-input autocomplete="off" type="password" name="password" [(ngModel)]="login.password"></ion-input>
       </ion-item>
 
@@ -28,4 +45,21 @@
     </ion-list>
     <ion-button expand="block" share="round" color="success" (click)="loginAction()">Login</ion-button>
   </form>
+
+  <ion-grid>
+    <ion-row class="icon-media">
+      <ion-col size="6" >
+        <ion-button expand="full" >
+        
+          <ion-icon name="logo-facebook" style="color:white;"></ion-icon>
+        </ion-button>
+      </ion-col>
+      
+      <ion-col size="6" class="btn-google">
+        <ion-button fill="outline" expand="block" class="btn-google">
+          <ion-icon name="logo-google"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
