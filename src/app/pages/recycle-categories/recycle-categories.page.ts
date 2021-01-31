@@ -18,8 +18,7 @@ export class RecycleCategoriesPage implements OnInit {
     private toastService: ToastService,
     private menuCtrl: MenuController
     ) { 
-    this.userIsLogged();
-      
+      this.userIsLogged();
     }
 
   ngOnInit() {
@@ -36,13 +35,12 @@ export class RecycleCategoriesPage implements OnInit {
       return;
     }
   }
-/**getCategoriesMethod*/
-  public getCategories() {
 
+  /** Get all Categories*/
+  public getCategories() {
     this.recycleService.getRecycleCategories().subscribe(
       (res: any) => {
         if (res) {
-          console.log(res);
           this.categories = res;
         } else {
           this.toastService.showMessage('No Item data available');
@@ -54,6 +52,4 @@ export class RecycleCategoriesPage implements OnInit {
       }
     );
   }
-
-
 }

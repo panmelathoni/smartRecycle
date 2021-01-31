@@ -3,7 +3,7 @@
     <ion-menu-toggle>
       <ion-button color="Dark"> <ion-icon name="menu" color="secondary"></ion-icon></ion-button>
     </ion-menu-toggle>
-    <ion-title>Menu - Burguers</ion-title>
+    <ion-title>Recycle Categories</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,12 +14,13 @@
           <ion-card text-center padding  [routerLink]="['./', category.recycleCategoryId]">
             
             <ion-label>
+              <h2>Id: {{category.recycleCategoryId}}</h2>
+              <h3>Nome: {{category.categoryName}}</h3>
               <h3>Habilitado:<ion-toggle color="success" [(ngModel)]="category.categoryEnabled" disabled></ion-toggle></h3>
               <h2>Cor: {{category.categoryColor}}</h2>
-              <h3>Nome: {{category.categoryName}}</h3>
-              
-              <!-- <ion-button [routerLink]="['./', item.id]"><ion-icon name="list"></ion-icon></ion-button>
-              <ion-button type="button" color="success" (click)="addToCart($event, item)"><ion-icon name="cart"></ion-icon></ion-button> -->
+              <h2>Iniciais: {{category.categoryInitials}}</h2>
+              <h2>Logo: {{category.categoryLogo}}</h2>
+              <ion-button [routerLink]="['./', category.recycleCategoryId]"><ion-icon name="list"></ion-icon></ion-button>
             </ion-label>
             <!-- <ion-button color="danger" (click)="deleteUser(item)">
               <ion-icon name="trash-outline"></ion-icon>

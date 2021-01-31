@@ -1,6 +1,7 @@
 
  export class Endpoints{
     public static readonly login =  '/recycle/webapi/v1/Account/Login';
+    public static readonly logout =  '/recycle/webapi/v1/Account/Logout';
     public static readonly resetPassword =  '/recycle/webapi/v1/Account/ResetPassword';
     public static readonly updatePassword =  '/recycle/webapi/v1/Account/UpdatePassword';
     public static readonly register =  '/recycle/webapi/v1/Account/Register';
@@ -15,7 +16,8 @@
     public static readonly getDirectionsGoogleApi =  '/recycle/webapi/v1/Google/GetDirectionsGoogleApi';
     public static readonly getDistanceGoogleApi =  '/recycle/webapi/v1/Google/GetDistanceGoogleApi';
     public static readonly getRecycleCategories =  '/recycle/webapi/v1/Recycle/GetRecycleCategories';
-    public static readonly getMaterialByCategory =  '/recycle/webapi/v1/Recycle/GetMaterialByCategory';
+    public static readonly getMaterialByCategory =  '/recycle/webapi/v1/Recycle/GetMaterialByCategory/';
+    public static readonly getCategoryById =  '/recycle/webapi/v1/Recycle/GetRecycleCategoryById/';
     public static readonly getRecycleHistoryByUser =  '/recycle/webapi/v1/Recycle/GetRecycleHistoryByUser';
     public static readonly createMaterial =  '/recycle/webapi/v1/Recycle/CreateMaterial';
     public static readonly updateMaterial=  '/recycle/webapi/v1/Recycle/UpdateMaterial';

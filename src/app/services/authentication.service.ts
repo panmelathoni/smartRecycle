@@ -35,6 +35,8 @@ httpOptions = {
   ) { }
 
   login(loginData: Login): Observable<any> {
+    console.log('login data', loginData);
+    
     const url = environment.apiUrl + Endpoints.login;
     return this.http.post(url, loginData, this.httpOptions);
   }
@@ -92,10 +94,23 @@ httpOptions = {
   //   return this.apiService.post('/api/Users/Register', loginData);
   // }
 
+  signOutUser(): Observable<any> {
+    const url = environment.apiUrl + Endpoints.logout;
+    return this.http.post(url, null, this.httpOptions);
+  }
+
   logout(){
-    this.storageService.deleteValueFromStorage(AuthConstants.AUTH).then(res => {
-      this.router.navigate(['']);
-    });
+    this.signOutUser().subscribe(
+      (res: any) => {
+        console.log(res)
+        this.storageService.deleteValueFromStorage(AuthConstants.AUTH).then(res => {
+          this.router.navigate(['']);
+        });
+      },
+      (error: any) => {
+        console.log('Network Issue.', error);
+      }
+    );
   }
 
 }

@@ -41,9 +41,17 @@ const routes: Routes = [
   },
   {
     path: 'categories',
-    loadChildren: () => import('./pages/recycle-categories/recycle-categories.module').then( m => m.RecycleCategoriesPageModule)
-  },
-  
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/recycle-categories/recycle-categories.module').then(m => m.RecycleCategoriesPageModule)
+      },
+      {
+        path: ':recycleCategoryId',
+        loadChildren: () => import('./pages/recycle-category-materials/recycle-category-materials.module').then(m => m.RecycleCategoryMaterialsPageModule)
+      }
+    ]
+  },  
 ];
 
 @NgModule({
