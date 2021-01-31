@@ -2,6 +2,7 @@ export class UserInformation {
   userAddressId: number;
   userId: string;
   userRole: string;
+  userName: string;
   completeAdress: string;
   street: string;
   city: string;

@@ -59,7 +59,7 @@ export class LoginPage implements OnInit {
 
             this.menuCtrl.enable(true);
             this.toastService.showMessage('Successfully Logged In: ' + res.userName);
-            this.router.navigate(['categories']);
+            this.router.navigate(['dashboard']);
           } else {
             this.toastService.showMessage('Invalid Login Data');
           }
