@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { Register } from 'src/app/models/register';
@@ -12,7 +12,6 @@ import { MustMatch } from 'src/app/utils/must-match.validator';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  get f() { return this.registerForm.controls; };
   submitted = false;
   public register: Register = new Register();
   public registerForm: FormGroup;
@@ -22,8 +21,6 @@ export class SignupPage implements OnInit {
     private menuCtrl: MenuController,
     public formBuilder: FormBuilder) { }
 
-
-
   ngOnInit() {
     this.menuCtrl.enable(false);
     this.registerForm = this.formBuilder.group({
@@ -31,10 +28,15 @@ export class SignupPage implements OnInit {
       password: ['', [Validators.required]],
       confirmPassword: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]]
-    }, {
-      validators: MustMatch('password', 'confirmPassword')
-    });
+    }
+      , {
+        validators: MustMatch('password', 'confirmPassword')
+      }
+    );
   }
+
+  get f() { return this.registerForm.controls; }
+
 
   onSubmit() {
     this.submitted = true;
@@ -44,7 +46,16 @@ export class SignupPage implements OnInit {
       return;
     }
 
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+    this.register.userName = this.registerForm.controls['userName'].value;
+    this.register.name = this.registerForm.controls['userName'].value;
+    this.register.email = this.registerForm.controls['email'].value;
+    this.register.password = this.registerForm.controls['password'].value;
+    this.register.confirmPassword = this.registerForm.controls['confirmPassword'].value;
+    this.register.isCompany = false;
+    this.register.isGovernment = false;
+
+
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.register))
   }
 }
 

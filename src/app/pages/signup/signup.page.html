@@ -20,11 +20,11 @@
           <ion-label position="fixed" class="label"> Utilizador</ion-label>
         </ion-row>
 
-        <ion-input placeholder="Utilizador" autocomplete="on" type="text" formControlName="userName"></ion-input>
-        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-            <div *ngIf="f.userName.errors.required">First Name is required</div>
-        </div>
+        <ion-input autocomplete="off" type="text" formControlName="userName"></ion-input>
       </ion-item>
+      <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+        <div *ngIf="f.userName.errors.required">First Name is required</div>
+      </div>
 
       <ion-item lines="none">
         <ion-row>
@@ -32,26 +32,26 @@
           <ion-label position="fixed" class="label"> e-mail</ion-label>
         </ion-row>
 
-        <ion-input placeholder="e-mail" autocomplete="on" type="text" formControlName="email"></ion-input>
+        <ion-input autocomplete="off" type="text" formControlName="email"></ion-input>
 
-        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors.required">Email is required</div>
-          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
-      </div>
       </ion-item>
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
 
       <ion-item lines="none">
         <ion-row>
           <ion-icon name="lock-closed-outline" class="icon-user-pass"></ion-icon>
           <ion-label position="fixed" class="label">Password</ion-label>
         </ion-row>
-        <ion-input placeholder="Password" autocomplete="on" type="password" formControlName="password"></ion-input>
+        <ion-input autocomplete="off" type="password" formControlName="password"></ion-input>
 
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-          <div *ngIf="f.password.errors.required">Password is required</div>
-          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-      </div>
       </ion-item>
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
 
       <ion-item lines="none">
         <ion-row>
@@ -59,16 +59,13 @@
           <ion-label position="fixed" class="label"> Confirm Password</ion-label>
         </ion-row>
 
-        <ion-input placeholder="Confirm Password" autocomplete="on" type="password" formControlName="confirmPassword"></ion-input>
+        <ion-input autocomplete="off" type="password" formControlName="confirmPassword"></ion-input>
 
-        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-          <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-          <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
-      </div>
       </ion-item>
-
-     
-
+      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+        <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+        <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+      </div>
     </ion-list>
 
     <div class="btn-login">
