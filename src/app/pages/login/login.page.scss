@@ -1,28 +1,78 @@
-.logo {
-    padding: 25px;
-    width: 100%;
-    height: 150px;
-    display: flex;
-    justify-content: center;
+
+
+img {
+  width: auto;
+  height: 250px;
+  margin: 0 auto;
+}
+
+
+.label {
+    color: #456268;
+    font-weight: 400;
 }
 
 
 .icon-user-pass {
-    size: 10px;
-    padding-right: 5px;
+  size: 5px;
+  padding-right: 5px;
+  color: #456268;
+
+}
+
+.new-account {
+    
+    padding: 15px;
+    margin: 0 auto;;
+}
+
+
+.btn-login {
+    display: flex;
+    justify-content: center;
+   
+}
+
+.enter-with-media{
+    padding: 10px;
+    font-size: 15px;
+    color:#a2d0c1;
+    font-weight: 600;
+    text-align: center;
 }
 
 .icon-media {
     text-align: center;
     background-color: none;
+  }
+
+.btn-facebook {
+    --background: #006dea;
+    float: right;
 }
 
-// .btn-facebook{
-    
-//     background-color: aqua;
-// }
+.btn-google {
+    --background: #ed3635;
+    --color: white;
+    --border-color: none;
+    float: left;
 
-// .btn-google{
-   
-//     background-color: red;
-// }
+}
+
+.forgot-password {
+    padding-left: 0;
+    font-size: 12px;
+    float: right;
+    color: #456268;
+    font-weight: 500;
+    
+    
+}
+
+.new-account {
+    font-size: 12px;
+    float: left;
+    padding-left: 0;;
+    color: #456268;
+    font-weight: 500;
+}

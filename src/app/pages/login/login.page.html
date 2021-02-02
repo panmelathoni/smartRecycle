@@ -1,61 +1,90 @@
-<!-- <ion-header>
-  <ion-toolbar color="mango">
-    <ion-title>Burguer Eats - Login</ion-title>
-  </ion-toolbar>
-</ion-header> -->
+<!-- <ion-header> -->
+<ion-toolbar color="mango">
+  <ion-title>Login</ion-title>
+</ion-toolbar>
 
-
-<ion-content padding='true'>
+<ion-content padding="true">
   <form [formGroup]="loginForm" novalidate>
-  <!-- **Logo** -->
+    <!-- **Logo** -->
 
-  <div class="logo">
-    <img src="" alt="logo" style="width: 50px; height: 60px;">
-  </div>
-  <ion-list>
-    <ion-item>
-      <!-- <img src="assets/icon/burguer1.png" class="image-center" /> -->
-    </ion-item>
-    <ion-item>
-      <ion-row>
-        <ion-icon item-left name="mail-outline" class="icon-user-pass"></ion-icon>
-        <ion-label position="stacked"> Email</ion-label>
+    <ion-list>
+      <ion-item lines="none">
+        <img src="../../../assets/urban.png" />
+      </ion-item>
+      <ion-item lines="none">
+        <ion-row>
+          <ion-icon
+            item-left
+            name="mail-outline"
+            class="icon-user-pass"
+          ></ion-icon>
+          <ion-label position="fixed" class="label"> e-mail</ion-label>
+        </ion-row>
+
+        <ion-input
+          placeholder="e-mail"
+          autocomplete="on"
+          type="text"
+          formControlName="userName"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-row>
+          <ion-icon
+            name="lock-closed-outline"
+            class="icon-user-pass"
+          ></ion-icon>
+          <ion-label position="fixed" class="label">Password</ion-label>
+        </ion-row>
+        <ion-input
+          placeholder="Password"
+          autocomplete="on"
+          type="password"
+          formControlName="password"
+        ></ion-input>
+      </ion-item>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-item lines="none">
+              <a class="forgot-password">Forgot Password?</a>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="6">
+            <ion-item lines="none" routerLink="register" (click)="register()">
+              <a class="new-account">New account!</a>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      
+    </ion-list>
+
+    <div class="btn-login" >
+
+      <ion-button size="large" color="success" (click)="loginAction()">Login</ion-button>
+    </div>
+        
+    <p class="enter-with-media">Ou entre com:</p>
+
+    <ion-grid>
+      <ion-row class="icon-media">
+        <ion-col size="6">
+          <ion-button class="btn-facebook">
+            <ion-icon name="logo-facebook" style="color: white"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-button class="btn-google">
+            <ion-icon name="logo-google"></ion-icon>
+          </ion-button>
+        </ion-col>
       </ion-row>
-
-      <ion-input autocomplete="on" type="text" formControlName="userName"></ion-input>
-
-    </ion-item>
-
-    <ion-item>
-      <ion-row>
-
-        <ion-icon name="lock-closed-outline" class="icon-user-pass"></ion-icon>
-        <ion-label position="stacked">Password</ion-label>
-      </ion-row>
-      <ion-input autocomplete="on" type="password" formControlName="password"></ion-input>
-    </ion-item>
-
-    <ion-item lines='none' routerLink='register' (click)="register()">
-      <a>Create a New Account</a>
-    </ion-item>
-  </ion-list>
-  <ion-button expand="block" share="round" color="success" (click)="loginAction()">Login</ion-button>
-
-  <ion-grid>
-    <ion-row class="icon-media">
-      <ion-col size="6">
-        <ion-button expand="full">
-
-          <ion-icon name="logo-facebook" style="color:white;"></ion-icon>
-        </ion-button>
-      </ion-col>
-
-      <ion-col size="6" class="btn-google">
-        <ion-button fill="outline" expand="block" class="btn-google">
-          <ion-icon name="logo-google"></ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    </ion-grid>
   </form>
 </ion-content>
