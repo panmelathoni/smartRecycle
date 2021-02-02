@@ -4,6 +4,95 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding="true">
 
+
+  <form [formGroup]="registerForm" novalidate>
+    <!-- **Logo** -->
+
+    <ion-list>
+      <ion-item lines="none">
+        <img src="../../../assets/SRecycle.png" style="height: 350px;" />
+      </ion-item>
+      <ion-item lines="none">
+        <ion-row>
+          <ion-icon item-left name="mail-outline" class="icon-user-pass"></ion-icon>
+          <ion-label position="fixed" class="label"> Utilizador</ion-label>
+        </ion-row>
+
+        <ion-input placeholder="Utilizador" autocomplete="on" type="text" formControlName="userName"></ion-input>
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.userName.errors.required">First Name is required</div>
+        </div>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-row>
+          <ion-icon item-left name="mail-outline" class="icon-user-pass"></ion-icon>
+          <ion-label position="fixed" class="label"> e-mail</ion-label>
+        </ion-row>
+
+        <ion-input placeholder="e-mail" autocomplete="on" type="text" formControlName="email"></ion-input>
+
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-row>
+          <ion-icon name="lock-closed-outline" class="icon-user-pass"></ion-icon>
+          <ion-label position="fixed" class="label">Password</ion-label>
+        </ion-row>
+        <ion-input placeholder="Password" autocomplete="on" type="password" formControlName="password"></ion-input>
+
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-row>
+          <ion-icon item-left name="mail-outline" class="icon-user-pass"></ion-icon>
+          <ion-label position="fixed" class="label"> Confirm Password</ion-label>
+        </ion-row>
+
+        <ion-input placeholder="Confirm Password" autocomplete="on" type="password" formControlName="confirmPassword"></ion-input>
+
+        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+          <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+          <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+      </div>
+      </ion-item>
+
+     
+
+    </ion-list>
+
+    <div class="btn-login">
+
+      <!-- clique do botao -->
+      <ion-button color="success" (click)="onSubmit()">Register</ion-button>
+    </div>
+
+    <p class="enter-with-media">Ou registre-se com:</p>
+
+    <ion-grid>
+      <ion-row class="icon-media">
+        <ion-col size="6">
+          <ion-button class="btn-facebook">
+            <ion-icon name="logo-facebook" style="color: white"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-button class="btn-google">
+            <ion-icon name="logo-google"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

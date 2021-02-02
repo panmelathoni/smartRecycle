@@ -8,7 +8,7 @@ img {
 
 
 .label {
-    color: #456268;
+    color: #211c1d;
     font-weight: 400;
 }
 
@@ -16,18 +16,14 @@ img {
 .icon-user-pass {
   size: 5px;
   padding-right: 5px;
-  color: #456268;
+  color: #211c1d;
 
 }
 
-.new-account {
-    
-    padding: 15px;
-    margin: 0 auto;;
-}
 
 
 .btn-login {
+    margin-top: 25px;
     display: flex;
     justify-content: center;
    
@@ -63,16 +59,20 @@ img {
     padding-left: 0;
     font-size: 12px;
     float: right;
-    color: #456268;
+    color: #211c1d;
     font-weight: 500;
     
     
 }
 
 .new-account {
+    padding-left: 76px;
     font-size: 12px;
     float: left;
-    padding-left: 0;;
-    color: #456268;
+    color: #211c1d;
     font-weight: 500;
+    padding-left: 25px;
+    margin: 0 auto;
 }
+
+
