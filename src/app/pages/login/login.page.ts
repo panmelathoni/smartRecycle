@@ -48,7 +48,6 @@ export class LoginPage implements OnInit {
     this.login.userName = this.loginForm.get('userName').value;
 
     if (!(this.login.userName === null && this.login.userName === undefined)) {
-      console.log(this.login);
       this.authenticationService.login(this.login).subscribe(
         (res: any) => {
           if (res.authenticated) {
@@ -59,7 +58,13 @@ export class LoginPage implements OnInit {
 
             this.menuCtrl.enable(true);
             this.toastService.showMessage('Successfully Logged In: ' + res.userName);
-            this.router.navigate(['dashboard']);
+            if (res.firstLogin === 1)
+            {
+              this.router.navigate(['welcome']);  
+            }
+            else{
+              this.router.navigate(['dashboard']);
+            }
           } else {
             this.toastService.showMessage('Invalid Login Data');
           }

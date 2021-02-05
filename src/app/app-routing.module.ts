@@ -51,7 +51,11 @@ const routes: Routes = [
         loadChildren: () => import('./pages/recycle-category-materials/recycle-category-materials.module').then(m => m.RecycleCategoryMaterialsPageModule)
       }
     ]
-  },  
+  },   {
+    path: 'email-confirm',
+    loadChildren: () => import('./pages/email-confirm/email-confirm.module').then( m => m.EmailConfirmPageModule)
+  },
+ 
 ];
 
 @NgModule({

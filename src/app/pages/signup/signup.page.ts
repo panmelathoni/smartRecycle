@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { Register } from 'src/app/models/register';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { MustMatch } from 'src/app/utils/must-match.validator';
 
@@ -19,7 +20,9 @@ export class SignupPage implements OnInit {
   constructor(private router: Router,
     private toastService: ToastService,
     private menuCtrl: MenuController,
-    public formBuilder: FormBuilder) { }
+    public formBuilder: FormBuilder,
+    private authenticationService: AuthenticationService,
+    ) { }
 
   ngOnInit() {
     this.menuCtrl.enable(false);
@@ -54,9 +57,23 @@ export class SignupPage implements OnInit {
     this.register.isCompany = false;
     this.register.isGovernment = false;
 
-
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.register))
+    this.authenticationService.register(this.register).subscribe(
+      (res: any) => {
+          
+          this.toastService.showMessage(res.message);
+          if (res.status) 
+            this.router.navigate(['email-confirm']);
+        
+      },
+      (error: any) => {
+        this.toastService.showMessage('Network Problem');
+        console.log('Network Issue.', error);
+      }
+    );
+    
   }
+
+
 }
 
 
