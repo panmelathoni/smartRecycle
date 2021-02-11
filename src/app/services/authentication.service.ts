@@ -1,3 +1,4 @@
+import { Address } from 'src/app/models/address';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { StorageService } from './storage.service';
@@ -58,7 +59,7 @@ httpOptions = {
 
 
 
-  updateUserInformation(updateUserInformationData : UserInformation) : Observable<any> {
+  updateUserInformation(updateUserInformationData : Address) : Observable<any> {
     const url = environment.apiUrl + Endpoints.updateUserInformation;
     return this.http.put(url, updateUserInformationData, this.httpOptions);
   }

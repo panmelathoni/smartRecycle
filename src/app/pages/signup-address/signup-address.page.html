@@ -12,37 +12,51 @@
 
     <ion-list>
       <ion-item lines="none">
-        <img src="../../../assets/SRecycle.png"/>
+        <img src="../../../assets/SRecycle.png" />
       </ion-item>
 
       <h3 class="title-address">Cadastre vossa morada:</h3>
 
       <ion-item lines="none">
-
-           
-          <ion-label position="fixed" class="label"> Morada</ion-label>
-
-       
-
-        <ion-input placeholder="Rua" class="input-field" autocomplete="off" type="text" formControlName="street"  (ionBlur)="getAddressFromGoogle($event.target.value)"></ion-input>
-
+        <ion-label position="fixed" class="label"> Morada</ion-label>
+        <ion-input placeholder="Rua" class="input-field" autocomplete="off" type="text" formControlName="street">
+        </ion-input>
+        <ion-button color="success" (click)="getAddressFromGoogle()">
+          <ion-icon name="search-outline"></ion-icon>
+        </ion-button>
       </ion-item>
       <div *ngIf="submitted && f.street.errors" class="invalid-feedback">
         <div *ngIf="f.street.errors.required">Rua Requirida</div>
       </div>
 
       <ion-item lines="none">
-        
-          
-          <ion-label position="fixed" class="label"> Cidade</ion-label>
-       
-
-        <ion-input placeholder="Cidade" class="input-field" autocomplete="off" type="text" formControlName="city"></ion-input>
-
+        <ion-label position="fixed" class="label">Cód. Postal</ion-label>
+        <ion-input placeholder="Código Postal" class="input-field" autocomplete="off" type="text"
+          formControlName="postalCode"></ion-input>
       </ion-item>
-      <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
-        <div *ngIf="f.city.errors.required">Cidade Requirida</div>
-        <div *ngIf="f.city.errors.email">Email must be a valid email address</div>
+      <div *ngIf="submitted && f.postalCode.errors" class="invalid-feedback">
+        <div *ngIf="f.postalCode.errors.required">Código Postal Requirida</div>
+      </div>
+
+  
+
+      <ion-item lines="none">
+        <ion-label position="fixed" class="label"> Concelho</ion-label>
+        <ion-input placeholder="Concelho" class="input-field" autocomplete="off" type="text" formControlName="concelho">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="submitted && f.concelho.errors" class="invalid-feedback">
+        <div *ngIf="f.concelho.errors.required">Concelho Requirido</div>
+      </div>
+
+      <ion-item lines="none">
+        <ion-label position="fixed" class="label"> Freguesia</ion-label>
+        <ion-input placeholder="Freguesia" class="input-field" autocomplete="off" type="text"
+          formControlName="freguesia">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="submitted && f.freguesia.errors" class="invalid-feedback">
+        <div *ngIf="f.freguesia.errors.required">Freguesia Requirida</div>
       </div>
 
       <!-- <ion-item lines="none">
@@ -57,42 +71,21 @@
         <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
       </div> -->
 
+
+
       <ion-item lines="none">
-        
-          <ion-label position="fixed" class="label">Cód. Postal</ion-label>
-       
-
-        <ion-input  placeholder="Código Postal" class="input-field" autocomplete="off" type="text" formControlName="postalCode"></ion-input>
-
-      </ion-item>
-      <div *ngIf="submitted && f.postalCode.errors" class="invalid-feedback">
-        <div *ngIf="f.postalCode.errors.required">Código Postal Requirida</div>
-        
-      </div>
-    
-
-
-
-    <ion-item lines="none">
-      
         <ion-label position="fixed" class="label">País</ion-label>
-      
-
-      <ion-input placeholder="País" class="input-field" autocomplete="off" type="text" formControlName="country"></ion-input>
-
-    </ion-item>
-    <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
-      <div *ngIf="f.country.errors.required">País Requirido</div>
-      
-    </div>
-  </ion-list>
+        <ion-input placeholder="País" class="input-field" autocomplete="off" type="text" formControlName="country">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+        <div *ngIf="f.country.errors.required">País Requirido</div>
+      </div>
+    </ion-list>
 
     <div class="btn-login">
-
       <!-- clique do botao -->
-      <ion-button color="success" (click)="getAddressFromGoogle()">testa</ion-button>
       <ion-button color="success" (click)="onSubmit()">Cadastrar Morada</ion-button>
     </div>
   </form>
-
 </ion-content>

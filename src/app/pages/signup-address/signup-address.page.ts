@@ -5,7 +5,9 @@ import { MenuController } from '@ionic/angular';
 import { Address } from 'src/app/models/address';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { GoogleApiService } from 'src/app/services/google-api.service';
+import { StorageService } from 'src/app/services/storage.service';
 import { ToastService } from 'src/app/services/toast.service';
+import { AuthConstants } from 'src/app/utils/auth-constants';
 
 @Component({
   selector: 'app-signup-address',
@@ -24,26 +26,28 @@ export class SignupAddressPage implements OnInit {
     private toastService: ToastService,
     private menuCtrl: MenuController,
     public formBuilder: FormBuilder,
+    private storageService: StorageService,
     private authenticationService: AuthenticationService,
-    private googleService: GoogleApiService) { }
+    private googleService: GoogleApiService) { 
+      this.userIsLogged();
+    }
 
   ngOnInit() {
     this.menuCtrl.enable(false);
     this.registerForm = this.formBuilder.group({
       street: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      // state: ['', [Validators.required]],
+      concelho: ['', [Validators.required]],
+      freguesia: ['', [Validators.required]],
       postalCode: ['', [Validators.required]],
       country: ['', [Validators.required]],
-
-    }, 
+    },
     );
   }
 
   get f() { return this.registerForm.controls; }
 
 
-  onSubmit() {
+  async onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
@@ -52,41 +56,65 @@ export class SignupAddressPage implements OnInit {
     }
 
     this.register.street = this.registerForm.controls['street'].value;
-    this.register.city = this.registerForm.controls['city'].value;
+    this.register.city = this.registerForm.controls['concelho'].value;
     this.register.postalCode = this.registerForm.controls['postalCode'].value;
     this.register.country = this.registerForm.controls['country'].value;
-    
-    console.log(JSON.stringify(this.register))
+    this.register.neighborhood = this.registerForm.controls['freguesia'].value;
+    this.register.userId = await this.storageService.readFromStorage(AuthConstants.AUTH);
+    // console.log(JSON.stringify(this.register))
 
-    // this.authenticationService.register(this.register).subscribe(
-    //   (res: any) => {
-          
-    //       this.toastService.showMessage(res.message);
-    //       if (res.status) 
-    //         this.router.navigate(['welcome']);
-        
-    //   },
-    //   (error: any) => {
-    //     this.toastService.showMessage('Network Problem');
-    //     console.log('Network Issue.', error);
-    //   }
-    // );
-    
-  }
-
-  getAddressFromGoogle(event) {
-
-var address = this.registerForm.controls['street'].value;
-    this.googleService.getAddressGoogleApi(address).subscribe(
+    this.authenticationService.updateUserInformation(this.register).subscribe(
       (res: any) => {
-          
-          console.log(res)
+
+        this.toastService.showMessage(res.message);
+        if (res.status)
+          this.router.navigate(['welcome']);
+
       },
       (error: any) => {
         this.toastService.showMessage('Network Problem');
         console.log('Network Issue.', error);
       }
     );
+
+  }
+
+  async userIsLogged() {
+    var user = await this.authenticationService.userIsLogged();
+    if (!user) {
+      this.toastService.showMessage("user is not logged in");
+      this.authenticationService.logout();
+    } else {
+      return;
+    }
+  }
+
+  getAddressFromGoogle() {
+    var address = this.registerForm.controls['street'].value;
+    this.googleService.getAddressGoogleApi(address).subscribe(
+      (res: any) => {
+        if (res.error) {
+          this.toastService.showMessage('Endereço não encontrado');
+          return;
+        }
+        this.register = res;
+        console.log(this.register)
+        this.fillFormAdress();
+      },
+      (error: any) => {
+        this.toastService.showMessage('Network Problem');
+        console.log('Network Issue.', error);
+      }
+    );
+  }
+
+  fillFormAdress() {
+    this.registerForm.patchValue({
+      street: this.register.street,
+      concelho: this.register.city,
+      freguesia: this.register.neighborhood,
+      country: this.register.country,
+    });
   }
 
 
