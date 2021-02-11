@@ -60,7 +60,8 @@ export class LoginPage implements OnInit {
             this.toastService.showMessage('Successfully Logged In: ' + res.userName);
             if (res.firstLogin === 1)
             {
-              this.router.navigate(['welcome']);  
+              this.router.navigate(['signup-address']);  
+              // this.router.navigate(['welcome']);  
             }
             else{
               this.router.navigate(['dashboard']);

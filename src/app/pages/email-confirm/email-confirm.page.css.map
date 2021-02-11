@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAOA,AAAA,SAAS,CAAA;EACL,KAAK,EAAE,OAAO;CAEjB;;AAED,AAAA,QAAQ,CAAA;EACJ,UAAU,EAAE,MAAM;EAClB,KAAK,EAAE,OAAO;EACd,SAAS,EAAE,IAAI;CAClB;;AAED,AAAA,GAAG,CAAC;EACF,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,MAAM;CACf;;AAED,AAAA,eAAe,CAAC;EACZ,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;CACxB",
+    "sources": [
+        "email-confirm.page.scss"
+    ],
+    "names": [],
+    "file": "email-confirm.page.css"
+}

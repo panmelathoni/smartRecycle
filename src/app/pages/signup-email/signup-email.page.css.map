@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "signup-email.page.scss"
+    ],
+    "names": [],
+    "file": "signup-email.page.css"
+}

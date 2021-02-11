@@ -1,0 +1,26 @@
+ion-title {
+  color: #211c1d;
+}
+
+.content {
+  text-align: center;
+  color: #211c1d;
+  font-size: 16px;
+}
+
+img {
+  width: auto;
+  height: 225px;
+  margin: 0 auto;
+}
+
+.btn-back-login {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=email-confirm.page.css.map */

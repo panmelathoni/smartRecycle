@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAA;EACT,MAAM,EAAC,MAAM;EACb,KAAK,EAAE,KAAK;CACb;;AAED,AAAA,cAAc,CAAA;EACZ,KAAK,EAAE,OAAO;CACf",
+    "sources": [
+        "recycle-categories.page.scss"
+    ],
+    "names": [],
+    "file": "recycle-categories.page.css"
+}

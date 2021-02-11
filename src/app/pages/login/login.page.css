@@ -1,0 +1,70 @@
+img {
+  width: auto;
+  height: 250px;
+  margin: 0 auto;
+}
+
+.label {
+  color: #211c1d;
+  font-weight: 400;
+}
+
+.icon-user-pass {
+  size: 5px;
+  padding-right: 5px;
+  color: #211c1d;
+}
+
+.btn-login {
+  margin-top: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.enter-with-media {
+  padding: 10px;
+  font-size: 15px;
+  color: #a2d0c1;
+  font-weight: 600;
+  text-align: center;
+}
+
+.icon-media {
+  text-align: center;
+  background-color: none;
+}
+
+.btn-facebook {
+  --background: #006dea;
+  float: right;
+}
+
+.btn-google {
+  --background: #ed3635;
+  --color: white;
+  --border-color: none;
+  float: left;
+}
+
+.forgot-password {
+  padding-left: 0;
+  font-size: 12px;
+  float: right;
+  color: #211c1d;
+  font-weight: 500;
+}
+
+.new-account {
+  padding-left: 76px;
+  font-size: 12px;
+  float: left;
+  color: #211c1d;
+  font-weight: 500;
+  padding-left: 25px;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=login.page.css.map */

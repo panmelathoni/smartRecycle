@@ -1,0 +1,69 @@
+img {
+    width: auto;
+    height: 225px;
+    margin: 0 auto;
+  }
+  
+  .label {
+    color: #211c1d;
+    font-weight: 400;
+    font-size: 12px;
+  }
+  
+  .icon-user-pass {
+    padding-right: 5px;
+    color: #211c1d;
+  }
+  
+  .ion-item {
+      min-height: 35px;
+  }
+  
+  .btn-login {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .enter-with-media {
+    font-size: 17px;
+    color: #211c1d;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+  
+  .icon-media {
+    text-align: center;
+    background-color: none;
+  }
+  
+  .btn-facebook {
+    --background: #006dea;
+    float: right;
+  }
+  
+  .btn-google {
+    --background: #ed3635;
+    --color: white;
+    --border-color: none;
+    float: left;
+  }
+  
+  
+  .input-field {
+      width: 50%;
+      font-size: 12px;
+      color: #211c1d;
+  }
+  
+  .title-address {
+      text-align: center;
+      color: #211c1d;
+      margin-bottom: 25px;
+  }
+
+  .ion-title {
+    color: #211c1d;
+      
+  }

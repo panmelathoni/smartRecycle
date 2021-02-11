@@ -12,7 +12,7 @@
     public static readonly getChatHistoryByUser =  '/recycle/webapi/v1/Chat/GetChatHistoryByUser';
     public static readonly createChat =  '/recycle/webapi/v1/Chat/CreateChat';
     public static readonly updateChat =  '/recycle/webapi/v1/Chat/UpdateChat';
-    public static readonly getAddressGoogleApi =  '/recycle​/webapi​/v1​/Google​/GetAddressGoogleApi​';
+    public static readonly getAddressGoogleApi =  '/recycle/webapi/v1/google/GetAddressGoogleapi';
     public static readonly getDirectionsGoogleApi =  '/recycle/webapi/v1/Google/GetDirectionsGoogleApi';
     public static readonly getDistanceGoogleApi =  '/recycle/webapi/v1/Google/GetDistanceGoogleApi';
     public static readonly getRecycleCategories =  '/recycle/webapi/v1/Recycle/GetRecycleCategories';
@@ -24,7 +24,7 @@
     public static readonly createCategory =  '/recycle/webapi/v1/Recycle/CreateCategory';
     public static readonly updateCategory =  '/recycle/webapi/v1/Recycle/UpdateCategory';
     public static readonly createRecycleHistory =  '/recycle/webapi/v1/Recycle/CreateRecycleHistory';
-    public static readonly updateRecycleHistory =  '/recycle/webapi/v1/Recycle/UpdateRecycleHistory';
+    public static readonly updateRecycleHistory =  '/recycle/webapi/v1/recycle/UpdateRecycleHistory';
     public static readonly getRecycleLocals =  '/recycle​/webapi​/v1/Recycle​/GetRecycleLocals​';
     public static readonly createRecycleLocal =  '/recycle/webapi/v1/Recycle/CreateRecycleLocal';
     public static readonly updateRecycleLocal =  '/recycle/webapi/v1/Recycle/UpdateRecycleLocal';

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Cadastre sua morada</ion-title>
+    <ion-title>Morada</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,88 +15,84 @@
         <img src="../../../assets/SRecycle.png"/>
       </ion-item>
 
+      <h3 class="title-address">Cadastre vossa morada:</h3>
 
       <ion-item lines="none">
 
-        <ion-row>
+           
+          <ion-label position="fixed" class="label"> Morada</ion-label>
 
-          <ion-icon item-left name="person-outline" class="icon-user-pass"></ion-icon>
-          <ion-label position="fixed" class="label"> Utilizador</ion-label>
+       
 
-        </ion-row>
-
-        <ion-input class="input-field" autocomplete="off" type="text" formControlName="userName"></ion-input>
+        <ion-input placeholder="Rua" class="input-field" autocomplete="off" type="text" formControlName="street"  (ionBlur)="getAddressFromGoogle($event.target.value)"></ion-input>
 
       </ion-item>
-      <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
-        <div *ngIf="f.userName.errors.required">Utlizador Requirido</div>
+      <div *ngIf="submitted && f.street.errors" class="invalid-feedback">
+        <div *ngIf="f.street.errors.required">Rua Requirida</div>
       </div>
 
       <ion-item lines="none">
-        <ion-row>
-          <ion-icon item-left name="mail-outline" class="icon-user-pass"></ion-icon>
-          <ion-label position="fixed" class="label"> E-mail</ion-label>
-        </ion-row>
+        
+          
+          <ion-label position="fixed" class="label"> Cidade</ion-label>
+       
 
-        <ion-input class="input-field" autocomplete="off" type="text" formControlName="email"></ion-input>
+        <ion-input placeholder="Cidade" class="input-field" autocomplete="off" type="text" formControlName="city"></ion-input>
 
       </ion-item>
-      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-        <div *ngIf="f.email.errors.required">Email Requirido</div>
-        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+        <div *ngIf="f.city.errors.required">Cidade Requirida</div>
+        <div *ngIf="f.city.errors.email">Email must be a valid email address</div>
       </div>
 
-      <ion-item lines="none">
-        <ion-row>
-          <ion-icon name="lock-closed-outline" class="icon-user-pass"></ion-icon>
-          <ion-label position="fixed" class="label">Palavra-Chave</ion-label>
-        </ion-row>
-        <ion-input class="input-field" autocomplete="off" type="password" formControlName="password"></ion-input>
+      <!-- <ion-item lines="none">
+       
+          <ion-label position="fixed" class="label">Estado</ion-label>
+        
+        <ion-input class="input-field" autocomplete="off" type="text" formControlName="state"></ion-input>
 
       </ion-item>
       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-        <div *ngIf="f.password.errors.required">Palavra-chave Requirida</div>
+        <div *ngIf="f.password.errors.required">Estado Requirida</div>
         <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-      </div>
+      </div> -->
 
       <ion-item lines="none">
-        <ion-row>
-          <ion-icon name="lock-closed-outline" class="icon-user-pass"></ion-icon>
-          <ion-label position="fixed" class="label conf-pass-field">Confirmar Palavra-Chave</ion-label>
-        </ion-row>
+        
+          <ion-label position="fixed" class="label">Cód. Postal</ion-label>
+       
 
-        <ion-input class="input-field" autocomplete="off" type="password" formControlName="confirmPassword"></ion-input>
+        <ion-input  placeholder="Código Postal" class="input-field" autocomplete="off" type="text" formControlName="postalCode"></ion-input>
 
       </ion-item>
-      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-        <div *ngIf="f.confirmPassword.errors.required">Confirmação Palavra-Chave Requirida</div>
-        <div *ngIf="f.confirmPassword.errors.mustMatch">Palavra Chave e Confirmação devem ser iguais</div>
+      <div *ngIf="submitted && f.postalCode.errors" class="invalid-feedback">
+        <div *ngIf="f.postalCode.errors.required">Código Postal Requirida</div>
+        
       </div>
-    </ion-list>
+    
+
+
+
+    <ion-item lines="none">
+      
+        <ion-label position="fixed" class="label">País</ion-label>
+      
+
+      <ion-input placeholder="País" class="input-field" autocomplete="off" type="text" formControlName="country"></ion-input>
+
+    </ion-item>
+    <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+      <div *ngIf="f.country.errors.required">País Requirido</div>
+      
+    </div>
+  </ion-list>
 
     <div class="btn-login">
 
       <!-- clique do botao -->
-      <ion-button color="success" (click)="onSubmit()">Cadastrar</ion-button>
+      <ion-button color="success" (click)="getAddressFromGoogle()">testa</ion-button>
+      <ion-button color="success" (click)="onSubmit()">Cadastrar Morada</ion-button>
     </div>
-
-    <p class="enter-with-media">Ou cadastre-se com:</p>
-
-    <ion-grid>
-      <ion-row class="icon-media">
-        <ion-col size="6">
-          <ion-button class="btn-facebook">
-            <ion-icon name="logo-facebook" style="color: white"></ion-icon>
-          </ion-button>
-        </ion-col>
-
-        <ion-col size="6">
-          <ion-button class="btn-google">
-            <ion-icon name="logo-google"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
   </form>
 
 </ion-content>

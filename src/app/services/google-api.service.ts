@@ -21,7 +21,7 @@ export class GoogleApiService {
 
 
   getAddressGoogleApi(address : string): Observable<any> {
-    const url = environment.apiUrl + Endpoints.getAddressGoogleApi + '/' + address;
+    const url = environment.apiUrl + Endpoints.getAddressGoogleApi + "?address=" + encodeURIComponent(address);
     return this.http.get(url, this.httpOptions);
   }
 
