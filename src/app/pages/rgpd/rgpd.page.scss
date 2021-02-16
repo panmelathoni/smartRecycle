@@ -1,0 +1,33 @@
+ion-title {
+  color: #211c1d;
+
+}
+
+
+.rgpd-term {
+    
+    border: 2px solid black;
+    padding: 10px;
+    margin: 33px;
+    font-size: 11px;
+    overflow-y: auto;
+    height: 500px;
+    color: #211c1d;
+}
+
+.label-position {
+    padding: 10px;
+    font-size: 10px;
+
+}
+
+
+ion-checkbox {
+    --size: 10px;
+}
+
+.btn-forward {
+    float: right;
+   margin-right: 15px;
+   margin-top: 20px;
+}

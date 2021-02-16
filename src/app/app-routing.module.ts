@@ -55,6 +55,10 @@ const routes: Routes = [
     path: 'email-confirm',
     loadChildren: () => import('./pages/email-confirm/email-confirm.module').then( m => m.EmailConfirmPageModule)
   },
+  {
+    path: 'rgpd',
+    loadChildren: () => import('./pages/rgpd/rgpd.module').then( m => m.RgpdPageModule)
+  },
  
 ];
 
