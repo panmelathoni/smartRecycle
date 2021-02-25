@@ -19,7 +19,8 @@ export class DashboardPage implements OnInit {
     private menuCtrl: MenuController
 
   ) {
-    this.userIsLogged();
+    //enquanto tiver testando nao chamar esse metodo
+    //this.userIsLogged();
   }
 
   async userIsLogged() {

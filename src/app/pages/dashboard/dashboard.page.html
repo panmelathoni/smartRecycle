@@ -1,21 +1,34 @@
 <ion-header>
   <ion-toolbar>
     <ion-title class="title">
-      Smart Recycle
+
+  
+  <!-- <h3 style="color:#211c1d; margin-top:0; float: right; margin-right:5px;">Smart Recycle</h3> -->
+      <img class="logo" src="../../../assets/teste.png" />
     </ion-title>
-    <ion-item>
-      <ion-avatar slot="start" class="header-avatar">
-        <img src="../../../assets/icon/renewable-energy.svg">
-      </ion-avatar>
-      <ion-label class="header-user-info">
-        <h3>{{user.userName}}</h3>
-        <p>{{user.userRole}}</p>
-      </ion-label>
-      <ion-label class="bonus-label">
-        <img src="../../../assets/icon/rect8148.png" class="image-bonus">
-        <h3>Total Bonus: 35</h3>
-      </ion-label>
-    </ion-item>
+
+          <ion-item lines="none">
+            
+          <ion-avatar slot="start" class="header-avatar">
+            <!-- <img src="../../../assets/icon/renewable-energy.svg"> -->
+            <!-- <img src="../../../assets/icon/twousergreen.png"> -->
+            <ion-icon size="large" name="person-outline"></ion-icon>
+          </ion-avatar>
+
+          <ion-label class="header-user-info">
+            <h3>{{user.userName}}</h3>
+            <p>{{user.userRole}}</p>
+          </ion-label>
+      
+        
+          <ion-label class="bonus-label">
+            <!-- <img src="../../../assets/icon/rect8148.png" class="image-bonus"> -->
+            <ion-icon size="large" name="ribbon-outline"></ion-icon>
+            <h3>Bónus: {{user.totalBonus}}</h3>
+          </ion-label>
+          </ion-item>
+ 
+
   </ion-toolbar>
 </ion-header>
 <ion-content>

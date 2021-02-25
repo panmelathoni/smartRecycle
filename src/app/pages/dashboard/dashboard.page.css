@@ -1,7 +1,9 @@
-.image-center {
+
+
+/* /* .image-center {
   margin: 0 auto;
   width: 120px;
-}
+} */
 
 .welcome-user {
   padding-left: 5px;
@@ -67,11 +69,16 @@
           justify-content: space-between;
 }
 
-.title {
+ .title {
   position: relative;
   padding-inline: 15px;
   margin: 10px;
   padding: 0px;
   text-align: left;
-}
+  height: 37px;
+} 
+
+ion-tolbar {
+  max-height: 150px;
+} */
 /*# sourceMappingURL=dashboard.page.css.map */

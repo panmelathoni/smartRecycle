@@ -15,6 +15,7 @@ export class UserInformation {
   updatedBy: string;
   createdOn: string;
   updatedOn: string;
+  totalBonus: number;
      /**
       *
       */

@@ -68,7 +68,7 @@ export class SignupAddressPage implements OnInit {
 
         this.toastService.showMessage(res.message);
         if (res.status)
-          this.router.navigate(['welcome']);
+          this.router.navigate(['dashboard']);
 
       },
       (error: any) => {

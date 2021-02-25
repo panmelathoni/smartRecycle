@@ -1,3 +1,9 @@
+
+.logo{
+  height: 50px !important;
+  float: right !important;
+}
+
 .image-center{
     margin:0 auto;
     width: 120px;
@@ -66,3 +72,11 @@
     text-align: left;
 }
 
+ion-icon{
+  color:#211c1d ;
+  --ionicon-stroke-width: 32px;
+
+  // esse fica bom no verde
+  // --ionicon-stroke-width: 46px;
+
+}
