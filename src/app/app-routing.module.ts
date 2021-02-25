@@ -63,6 +63,10 @@ const routes: Routes = [
     path: 'recycle-bonus-options',
     loadChildren: () => import('./pages/recycle-bonus-options/recycle-bonus-options.module').then( m => m.RecycleBonusOptionsPageModule)
   },
+  {
+    path: 'recycle-bonus-history',
+    loadChildren: () => import('./pages/recycle-bonus-history/recycle-bonus-history.module').then( m => m.RecycleBonusHistoryPageModule)
+  },
  
 ];
 
