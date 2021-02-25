@@ -59,6 +59,10 @@ const routes: Routes = [
     path: 'rgpd',
     loadChildren: () => import('./pages/rgpd/rgpd.module').then( m => m.RgpdPageModule)
   },
+  {
+    path: 'recycle-bonus-options',
+    loadChildren: () => import('./pages/recycle-bonus-options/recycle-bonus-options.module').then( m => m.RecycleBonusOptionsPageModule)
+  },
  
 ];
 

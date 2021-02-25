@@ -20,14 +20,14 @@ export class DashboardPage implements OnInit {
 
   ) {
     //enquanto tiver testando nao chamar esse metodo
-    //this.userIsLogged();
+    // this.userIsLogged();
   }
 
   async userIsLogged() {
     var userIdLogged = await this.authenticationService.userIsLogged();
-    this.authenticationService.getUserById(userIdLogged).subscribe((res: UserInformation) => {
+    
+    this.authenticationService.getUserById(userIdLogged).subscribe((res) => {
       if (res) {
-        console.log('logged user', res)
         this.menuCtrl.enable(true);
         this.user = res;
         return;
