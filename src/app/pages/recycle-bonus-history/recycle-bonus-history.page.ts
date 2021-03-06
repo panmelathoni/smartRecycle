@@ -5,6 +5,7 @@ import { UserInformation } from 'src/app/models/user-information';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { BonusService } from 'src/app/services/bonus.service';
 import { ToastService } from 'src/app/services/toast.service';
+import { AuthConstants } from 'src/app/utils/auth-constants';
 
 @Component({
   selector: 'app-recycle-bonus-history',
@@ -18,33 +19,19 @@ export class RecycleBonusHistoryPage implements OnInit {
   public noresults : boolean = true;
   public userIdLogged : string;
   constructor(
-    private authenticationService: AuthenticationService,
     private menuCtrl: MenuController,
     private bonusService: BonusService,
     private toastService: ToastService,
+    private authenticationService: AuthenticationService,
   ) { }
 
-  async ngOnInit() {
-    //enquanto tiver testando nao chamar esse metodo
-    await this.userIsLogged();
+  ngOnInit() {
     this.menuCtrl.enable(true);
-    this.getBonusOptions();
-  }
-
-  async userIsLogged() {
-    this.userIdLogged = await this.authenticationService.userIsLogged();
-
-    this.authenticationService.getUserById(this.userIdLogged).subscribe((res) => {
-      if (res) {
-        this.menuCtrl.enable(true);
+    this.user.userId = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
+    this.authenticationService.getUserById(this.user.userId).subscribe((res) => {
         this.user = res;
-        return;
-      }
-      else {
-        this.toastService.showMessage("user is not logged in");
-        this.authenticationService.logout();
-      }
     })
+    this.getBonusOptions();
   }
 
   public getBonusOptions() {    

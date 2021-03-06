@@ -17,6 +17,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginPage implements OnInit {
   public login: Login = new Login();
   public loginForm: FormGroup;
+  private userName: string;
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -50,27 +51,19 @@ export class LoginPage implements OnInit {
     if (!(this.login.userName === null && this.login.userName === undefined)) {
       this.authenticationService.login(this.login).subscribe(
         (res: any) => {
-          if (res.authenticated) {
-            this.storageService.saveStorage(AuthConstants.AUTH, res.userId);
-            this.storageService.saveStorage(AuthConstants.AUTH_PASS, this.login.password);
-            this.storageService.saveStorage(AuthConstants.AUTH_NAME, res.userName);
-            this.storageService.saveToken(res.accessToken);
-
             this.menuCtrl.enable(true);
-            this.toastService.showMessage('Successfully Logged In: ' + res.userName);
-            if (res.firstLogin === 1)
+            var firstLogin = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_FIRST_LOGIN))));
+            this.userName = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_NAME))));
+            this.toastService.showMessage('Successfully Logged In: ' +  this.userName );
+            console.log('first login',  firstLogin);
+            
+            if (parseInt(firstLogin) == 1)
             {
               this.router.navigate(['rgpd']);  
-
-              // this.router.navigate(['signup-address']);  
-              // this.router.navigate(['welcome']);  
             }
             else{
               this.router.navigate(['dashboard']);
             }
-          } else {
-            this.toastService.showMessage('Invalid Login Data');
-          }
         },
         (error: any) => {
           this.toastService.showMessage('Network Problem');
