@@ -1,26 +1,26 @@
+import { BonusService } from './../../services/bonus.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { Category } from 'src/app/models/category';
 import { UserInformation } from 'src/app/models/user-information';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { RecycleService } from 'src/app/services/recycle.service';
+import { Bonus } from 'src/app/models/bonus';
 import { ToastService } from 'src/app/services/toast.service';
 import { AuthConstants } from 'src/app/utils/auth-constants';
 
 @Component({
-  selector: 'app-recycle-categories',
-  templateUrl: './recycle-categories.page.html',
-  styleUrls: ['./recycle-categories.page.scss'],
+  selector: 'app-recycle-bonus-options',
+  templateUrl: './recycle-bonus-options.page.html',
+  styleUrls: ['./recycle-bonus-options.page.scss'],
 })
-export class RecycleCategoriesPage implements OnInit {
-  public categories: Category[];
+export class RecycleBonusOptionsPage implements OnInit {
   public user : UserInformation = new UserInformation();
-  constructor(private recycleService : RecycleService,
+  public bonusOptions: Bonus[];
+  constructor(
+    private menuCtrl: MenuController,
+    private bonusService: BonusService,
     private toastService: ToastService,
-    private authenticationService: AuthenticationService,
-    private menuCtrl: MenuController
-    ) { 
-    }
+    private authenticationService: AuthenticationService
+  ) { }
 
   ngOnInit() {
     this.menuCtrl.enable(true);
@@ -28,15 +28,15 @@ export class RecycleCategoriesPage implements OnInit {
     this.authenticationService.getUserById(this.user.userId).subscribe((res) => {
         this.user = res;
     })
-    this.getCategories();
+    this.getBonusOptions();
   }
 
-  /** Get all Categories*/
-  public getCategories() {
-    this.recycleService.getRecycleCategories().subscribe(
+  public getBonusOptions() {
+    this.bonusService.getRecycleBonusOptions().subscribe(
       (res: any) => {
         if (res) {
-          this.categories = res;
+          console.log(res);
+          this.bonusOptions = res;
         } else {
           this.toastService.showMessage('No Item data available');
         }
@@ -47,4 +47,11 @@ export class RecycleCategoriesPage implements OnInit {
       }
     );
   }
+
+  public checkoutItem(event: Event, item) {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log('TODO : implement bonus usage', item);
+  }
+
 }

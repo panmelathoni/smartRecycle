@@ -29,7 +29,6 @@ export class SignupAddressPage implements OnInit {
     private storageService: StorageService,
     private authenticationService: AuthenticationService,
     private googleService: GoogleApiService) { 
-      this.userIsLogged();
     }
 
   ngOnInit() {
@@ -77,16 +76,6 @@ export class SignupAddressPage implements OnInit {
       }
     );
 
-  }
-
-  async userIsLogged() {
-    var user = await this.authenticationService.userIsLogged();
-    if (!user) {
-      this.toastService.showMessage("user is not logged in");
-      this.authenticationService.logout();
-    } else {
-      return;
-    }
   }
 
   getAddressFromGoogle() {

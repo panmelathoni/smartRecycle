@@ -14,10 +14,14 @@
     public static readonly getRecycleBonusOptions =  '/recycle/webapi/v1/Bonus/GetRecycleBonusOptions';
     public static readonly getAllRecycleBonusOptions =  '/recycle/webapi/v1/Bonus/GetAllRecycleBonusOptions';
     public static readonly getBonusUsageHistoryByUser =  '/recycle/webapi/v1/Bonus/GetBonusUsageHistoryByUser/';
+
     public static readonly getAllBonusUsage =  '/recycle/webapi/v1/Bonus/GetAllBonusUsageHistory/';
     public static readonly getAllRecycleHistory =  '/recycle/webapi/v1/Recycle/GetAllRecycleHistory';
-    public static readonly createBonusOption =  '/recycle/webapi/v1/Bonus/CreateBonusOption';
+
     public static readonly creditBonusUser =  '/recycle/webapi/v1/Bonus/CreditUserBonus';
+
+    public static readonly createBonusOption =  '/recycle/webapi/v1/Bonus/CreateBonusOption';
+
     public static readonly updateBonusOption =  '/recycle/webapi/v1/Bonus/UpdateBonusOption';
     public static readonly getChatHistoryByUser =  '/recycle/webapi/v1/Chat/GetChatHistoryByUser';
     public static readonly getChatHistory =  '/recycle/webapi/v1/Chat/GetChatHistory';

@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -17,11 +19,13 @@ const routes: Routes = [
   },
   {
     path: 'closest',
-    loadChildren: () => import('./pages/closest-recycle-points/closest-recycle-points.module').then( m => m.ClosestRecyclePointsPageModule)
+    loadChildren: () => import('./pages/closest-recycle-points/closest-recycle-points.module').then( m => m.ClosestRecyclePointsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'welcome',
-    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
+    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'signup',
@@ -37,18 +41,21 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'categories',
     children: [
       {
         path: '',
-        loadChildren: () => import('./pages/recycle-categories/recycle-categories.module').then(m => m.RecycleCategoriesPageModule)
+        loadChildren: () => import('./pages/recycle-categories/recycle-categories.module').then(m => m.RecycleCategoriesPageModule),
+        canActivate: [AuthGuard]
       },
       {
         path: ':recycleCategoryId',
-        loadChildren: () => import('./pages/recycle-category-materials/recycle-category-materials.module').then(m => m.RecycleCategoryMaterialsPageModule)
+        loadChildren: () => import('./pages/recycle-category-materials/recycle-category-materials.module').then(m => m.RecycleCategoryMaterialsPageModule),
+        canActivate: [AuthGuard]
       }
     ]
   },   {
@@ -57,7 +64,18 @@ const routes: Routes = [
   },
   {
     path: 'rgpd',
-    loadChildren: () => import('./pages/rgpd/rgpd.module').then( m => m.RgpdPageModule)
+    loadChildren: () => import('./pages/rgpd/rgpd.module').then( m => m.RgpdPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'recycle-bonus-options',
+    loadChildren: () => import('./pages/recycle-bonus-options/recycle-bonus-options.module').then( m => m.RecycleBonusOptionsPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'recycle-bonus-history',
+    loadChildren: () => import('./pages/recycle-bonus-history/recycle-bonus-history.module').then( m => m.RecycleBonusHistoryPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'chat',
