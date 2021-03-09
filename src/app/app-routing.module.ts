@@ -59,6 +59,10 @@ const routes: Routes = [
     path: 'rgpd',
     loadChildren: () => import('./pages/rgpd/rgpd.module').then( m => m.RgpdPageModule)
   },
+  {
+    path: 'chat',
+    loadChildren: () => import('./pages/chat/chat.module').then( m => m.ChatPageModule)
+  },
  
 ];
 
