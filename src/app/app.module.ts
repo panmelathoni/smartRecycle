@@ -16,6 +16,9 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/httpinterceptor.service';
 
+import { DatePipe } from '@angular/common';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +29,7 @@ import { TokenInterceptor } from './services/httpinterceptor.service';
     SplashScreen,
     Geolocation,
     NativeGeocoder,
+    DatePipe,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     HttpClient,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

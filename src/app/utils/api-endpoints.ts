@@ -23,7 +23,7 @@
     public static readonly createBonusOption =  '/recycle/webapi/v1/Bonus/CreateBonusOption';
 
     public static readonly updateBonusOption =  '/recycle/webapi/v1/Bonus/UpdateBonusOption';
-    public static readonly getChatHistoryByUser =  '/recycle/webapi/v1/Chat/GetChatHistoryByUser';
+    public static readonly getChatHistoryByUser =  '/recycle/webapi/v1/Chat/GetChatHistoryByUser/';
     public static readonly getChatHistory =  '/recycle/webapi/v1/Chat/GetChatHistory';
     public static readonly createChat =  '/recycle/webapi/v1/Chat/CreateChat';
     public static readonly updateChat =  '/recycle/webapi/v1/Chat/UpdateChat';
