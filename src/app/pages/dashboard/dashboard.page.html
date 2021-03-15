@@ -1,48 +1,73 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="title">
-
-  
-  <!-- <h3 style="color:#211c1d; margin-top:0; float: right; margin-right:5px;">Smart Recycle</h3> -->
-      <img class="logo" src="../../../assets/teste.png" />
-    </ion-title>
-
-          <ion-item lines="none">
-            
-          <ion-avatar slot="start" class="header-avatar">
-            <!-- <img src="../../../assets/icon/renewable-energy.svg"> -->
-            <!-- <img src="../../../assets/icon/twousergreen.png"> -->
-            <ion-icon size="large" name="person-outline"></ion-icon>
-          </ion-avatar>
-
-          <ion-label class="header-user-info">
-            <h3>{{user.userName}}</h3>
-            <p>{{user.userRole}}</p>
-          </ion-label>
-      
-        
-          <ion-label class="bonus-label">
-            <!-- <img src="../../../assets/icon/rect8148.png" class="image-bonus"> -->
-            <ion-icon size="large" name="ribbon-outline"></ion-icon>
-            <h3>Bónus: {{user.totalBonus}}</h3>
-          </ion-label>
-          </ion-item>
- 
-
+    <ion-grid>
+      <ion-row class="title">
+        <ion-menu-toggle>
+          <ion-button color="Dark">
+            <ion-icon name="menu" color="success"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+        <ion-col>
+          <ion-row class="user-title">
+            <img class="logo" src="../../../assets/teste.png" />
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          <ion-row class="user-title">
+            <ion-icon name="person-circle-outline"></ion-icon>
+            <span class="font-user-style">{{user.userName}}</span>
+          </ion-row>
+          <ion-row class="user-title">
+            <span class="font-role-style">{{user.userRole}}</span>
+          </ion-row>
+          <ion-row class="user-title">
+            <span class="font-bonus-style"> Bónus: {{user.totalBonus}}</span>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-grid>
     <ion-row>
       <ion-col col-6>
+        <ion-card class="card-layout" text-center padding color="tertiary" routerLink="/change-password">
+          <ion-card-header class="card-header">
+            <ion-card-title class="card-title">
+              <img src="assets/icon/rect8150.png" class="image-icon" />
+              Materiais e Categorias (TODO PANELA)
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-font">
+            Materiais e Categorias de Reciclagem
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card class="card-layout" text-center padding color="light" routerLink="/login">
+          <ion-card-header class="card-header">
+            <ion-card-title class="card-title">
+              <img src="assets/icon/rect8130.png" class="image-icon" />
+              Meu Responsável no Governo (TODO PANELA)
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-font">
+            Responsável pelo governo atribuído
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
         <ion-card class="card-layout" text-center padding color="primary" routerLink="/recycle-bonus-options">
           <ion-card-header class="card-header">
             <ion-card-title class="card-title">
               <img src="../../../assets/icon/rect8116.png" class="image-icon" />
-              Utilizar Bónus
+              Utilizar Bónus (TODO PANELA)
             </ion-card-title>
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content class="card-font">
             Opções disponíveis para troca dos bónus acumulados
           </ion-card-content>
         </ion-card>
@@ -52,10 +77,10 @@
           <ion-card-header class="card-header">
             <ion-card-title class="card-title">
               <img src="../../../assets/icon/rect8144.png" class="image-icon" />
-              Meu Histórico
+              Meu Histórico (TODO PANELA)
             </ion-card-title>
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content class="card-font">
             Minhas Reciclagens
           </ion-card-content>
         </ion-card>
@@ -68,10 +93,10 @@
           <ion-card-header class="card-header">
             <ion-card-title class="card-title">
               <img src="assets/icon/changepassword.png" class="image-icon" />
-              Minhas Informações
+              Minhas Informações (TODO PANELA)
             </ion-card-title>
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content class="card-font">
             Gerenciar minhas informações
           </ion-card-content>
         </ion-card>
@@ -80,12 +105,40 @@
         <ion-card class="card-layout" text-center padding color="light" routerLink="/login">
           <ion-card-header class="card-header">
             <ion-card-title class="card-title">
-              <img src="assets/icon/logout.png" class="image-icon" />
-              Sair
+              <img src="assets/icon/recycle-location.png" class="image-icon" />
+              Pontos de Reciclagem (TODO - Fabio)
             </ion-card-title>
           </ion-card-header>
-          <ion-card-content>
-            Desativar Secção
+          <ion-card-content class="card-font">
+            Pontos de Reciclagem Próximos a minha residência
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card class="card-layout" text-center padding color="tertiary" routerLink="/change-password">
+          <ion-card-header class="card-header">
+            <ion-card-title class="card-title">
+              <img src="assets/icon/chat.png" class="image-icon" />
+              Mensagens (TODO - PANELA)
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-font">
+            Criar ou Ler Mensagens
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card class="card-layout" text-center padding color="light" routerLink="/login">
+          <ion-card-header class="card-header">
+            <ion-card-title class="card-title">
+              <img src="assets/icon/logout.png" class="image-icon" />
+              Materiais Dísponiveis (TODO FABIO)
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-font">
+            Materiais Dísponiveis para Retirada (Apenas para perfil empresa)
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -93,24 +146,20 @@
   </ion-grid>
 </ion-content>
 <ion-footer>
-  <ion-row>
-    <ion-col center text-center>
-      <button>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>1.5k Likes</div>
-      </button>
+  <ion-row class="footer-row">
+    <ion-col>
+      <ion-row class="leaf-row-design">
+        <ion-icon name="leaf-outline"></ion-icon>
+        <span class="footer-text-design">Smart Recycle</span>
+      </ion-row>
     </ion-col>
-    <ion-col center text-center>
-      <button>
-        <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
-      </button>
-    </ion-col>
-    <ion-col center text-center>
-      <button>
-        <ion-icon name="time"></ion-icon>
-        <div>11h ago</div>
-      </button>
+    <ion-col>
+      <ion-row class="button-row-design">
+        <ion-button size="small" fill="outline" color="medium" routerLink="/login">
+          <ion-icon name="log-out-outline" style="padding-right: 3px;"></ion-icon>
+          Sair
+        </ion-button>
+      </ion-row>
     </ion-col>
   </ion-row>
 </ion-footer>
