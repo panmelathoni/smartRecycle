@@ -77,6 +77,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/recycle-bonus-history/recycle-bonus-history.module').then( m => m.RecycleBonusHistoryPageModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'chat',
+    loadChildren: () => import('./pages/chat/chat.module').then( m => m.ChatPageModule)
+  },
  
 ];
 

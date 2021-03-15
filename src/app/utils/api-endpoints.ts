@@ -1,19 +1,30 @@
 
  export class Endpoints{
     public static readonly login =  '/recycle/webapi/v1/Account/Login';
+    public static readonly roles =  '/recycle/webapi/v1/Account/GetRoles';
     public static readonly logout =  '/recycle/webapi/v1/Account/Logout';
     public static readonly refreshToken =  '/recycle/webapi/v1/Account/RefreshToken';
     public static readonly resetPassword =  '/recycle/webapi/v1/Account/ResetPassword';
     public static readonly updatePassword =  '/recycle/webapi/v1/Account/UpdatePassword';
     public static readonly register =  '/recycle/webapi/v1/Account/Register';
+    public static readonly addUserFromGovernmentApp =  '/recycle/webapi/v1/Account/CreateUserFromAdministratorApplication';
     public static readonly getUserById =  '/recycle/webapi/v1/Account/GetUserInformation/';
+    public static readonly getAllUsers =  '/recycle/webapi/v1/Account/GetUsersInformation';
     public static readonly updateUserInformation =  '/recycle/webapi/v1/Account/UpdateUserInformation';
     public static readonly getRecycleBonusOptions =  '/recycle/webapi/v1/Bonus/GetRecycleBonusOptions';
     public static readonly getAllRecycleBonusOptions =  '/recycle/webapi/v1/Bonus/GetAllRecycleBonusOptions';
     public static readonly getBonusUsageHistoryByUser =  '/recycle/webapi/v1/Bonus/GetBonusUsageHistoryByUser/';
+
+    public static readonly getAllBonusUsage =  '/recycle/webapi/v1/Bonus/GetAllBonusUsageHistory/';
+    public static readonly getAllRecycleHistory =  '/recycle/webapi/v1/Recycle/GetAllRecycleHistory';
+
+    public static readonly creditBonusUser =  '/recycle/webapi/v1/Bonus/CreditUserBonus';
+
     public static readonly createBonusOption =  '/recycle/webapi/v1/Bonus/CreateBonusOption';
+
     public static readonly updateBonusOption =  '/recycle/webapi/v1/Bonus/UpdateBonusOption';
-    public static readonly getChatHistoryByUser =  '/recycle/webapi/v1/Chat/GetChatHistoryByUser';
+    public static readonly getChatHistoryByUser =  '/recycle/webapi/v1/Chat/GetChatHistoryByUser/';
+    public static readonly getChatHistory =  '/recycle/webapi/v1/Chat/GetChatHistory';
     public static readonly createChat =  '/recycle/webapi/v1/Chat/CreateChat';
     public static readonly updateChat =  '/recycle/webapi/v1/Chat/UpdateChat';
     public static readonly getAddressGoogleApi =  '/recycle/webapi/v1/google/GetAddressGoogleapi';

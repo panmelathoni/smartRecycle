@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Chat</ion-title>
+    <ion-button (click)="closeChat()" class="close">
+      <ion-icon size="large" name="close-sharp"></ion-icon>      
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="message-view">
+    
+    <ion-row *ngFor="let item of chat" class="grid-row-display">
+      <ion-col>
+        <ion-card class="answer-card">
+          <ion-row>
+            <span>{{item.message}} </span>
+          </ion-row>
+          <ion-row class="date-time">
+            <span>{{item.createdOn | date:'shortTime'}}</span>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <br>  <br>
+        <!-- *ngIf="item.answer !== ''" -->
+        <ion-card *ngIf="item.answer !== null" class="user-card ">
+          <ion-row>
+            <span >{{item.answer}} </span>
+          </ion-row>
+          <ion-row class="date-time">
+            <span>{{item.updatedOn | date:'shortTime'}}</span>
+          </ion-row>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </div>
+  
+  <div class="message-send">
+    <ion-textarea [(ngModel)]="messageChat"  autocapitalize="on" autofocus="true" enterkeyhint="enter"
+      class="textarea" placeholder="Digite sua mensagem"></ion-textarea>
+  </div>
+
+  <div class="btn-send">
+
+    <ion-button  color="success" (click)="sendMessage()">Enviar</ion-button>
+  </div>
+</ion-content>

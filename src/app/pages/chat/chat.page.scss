@@ -1,0 +1,67 @@
+ion-title{
+    color: #211c1d;
+  
+    
+}
+
+.date-time{
+    font-size: 10px;
+    float: right;
+    margin-top:0.5px;
+    justify-content: flex-end;
+}
+
+
+.message{
+    margin: 8px;
+    font-size: 18px;
+}
+
+.user-card {
+    background: #efebe2;
+    justify-content: flex-end;
+     padding:5px;
+    
+}
+
+.answer-card {
+    margin:0;
+   background: #d9ebf3;  
+   justify-content: flex-end;
+     padding:5px;
+
+}
+
+
+.grid-row-display{
+    display: flex;
+  
+}
+
+.message-view{
+   
+    overflow-y: auto;
+    height: 78%;
+    border-bottom: 0.2px solid rgb(197, 189, 189);
+    margin-bottom: 5px;   
+}
+
+.btn-send{
+    float: right;
+    margin-top: 4%;
+    margin-right: 10px;
+}
+
+
+.message-send {
+   margin: 18px;
+}
+
+.close {
+    float: right;
+    --background:white;
+    --color: #211c1d;
+  
+
+
+}
