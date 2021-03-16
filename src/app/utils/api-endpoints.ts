@@ -42,7 +42,7 @@
     public static readonly updateCategory =  '/recycle/webapi/v1/Recycle/UpdateCategory';
     public static readonly createRecycleHistory =  '/recycle/webapi/v1/Recycle/CreateRecycleHistory';
     public static readonly updateRecycleHistory =  '/recycle/webapi/v1/recycle/UpdateRecycleHistory';
-    public static readonly getRecycleLocals =  '/recycle/webapi/v1/Recycle/GetRecycleLocals';
+    public static readonly getClosestRecyclePoints =  '/recycle/webapi/v1/Recycle/GetClosestRecycleLocals/';
     public static readonly getAllRecycleLocals =  '/recycle/webapi/v1/Recycle/GetAllRecycleLocals';
     public static readonly createRecycleLocal =  '/recycle/webapi/v1/Recycle/CreateRecycleLocal';
     public static readonly updateRecycleLocal =  '/recycle/webapi/v1/Recycle/UpdateRecycleLocal';

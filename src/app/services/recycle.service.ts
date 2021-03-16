@@ -76,8 +76,14 @@ export class RecycleService {
   }
 
   /** Service Layer - Get all Recycle locals*/
+  getClosestRecyclePoints(userId: string): Observable<any> {
+    const url = environment.apiUrl + Endpoints.getClosestRecyclePoints + userId;
+    return this.http.get(url);
+  }
+
+  /** Service Layer - Get all Recycle locals*/
   getRecycleLocals(): Observable<any> {
-    const url = environment.apiUrl + Endpoints.getRecycleLocals;
+    const url = environment.apiUrl + Endpoints.getAllRecycleLocals;
     return this.http.get(url);
   }
 
