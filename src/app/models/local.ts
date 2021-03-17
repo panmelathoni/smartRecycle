@@ -1,7 +1,11 @@
 export class Local {
     recycleLocalId: number;
   localEnabled: number;
-  userId: string;
+  localDescription: string;
+  localName: string;
+  latitude: number;
+  longitude: number;
+  distanceFromUser: string;
   geolocation: string;
   createdBy: string;
   updatedBy: string;

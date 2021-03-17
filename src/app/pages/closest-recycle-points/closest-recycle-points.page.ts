@@ -1,8 +1,13 @@
 
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-
-import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+import { MenuController } from '@ionic/angular';
+import { Local } from 'src/app/models/local';
+import { UserInformation } from 'src/app/models/user-information';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { GoogleApiService } from 'src/app/services/google-api.service';
+import { RecycleService } from 'src/app/services/recycle.service';
+import { ToastService } from 'src/app/services/toast.service';
+import { AuthConstants } from 'src/app/utils/auth-constants';
 
 declare var google;
 
@@ -11,85 +16,91 @@ declare var google;
   templateUrl: './closest-recycle-points.page.html',
   styleUrls: ['./closest-recycle-points.page.scss'],
 })
-export class ClosestRecyclePointsPage implements OnInit{
+export class ClosestRecyclePointsPage implements OnInit {
   @ViewChild('map', { static: false }) mapElement: ElementRef;
+  public user: UserInformation = new UserInformation();
+  public userId: string;
   map: any;
   address: string;
+  locals: Local[] = [];
 
   latitude: number;
   longitude: number;
 
+  icon = {
+    url: 'assets/icon/recycle-location.png', // image url
+    scaledSize: new google.maps.Size(50, 50), // scaled size
+  };
+
+  iconUser = {
+    url: 'assets/icon/user_marker.jpg',
+    scaledSize: new google.maps.Size(50, 50), // scaled size
+  }
+
   constructor(
-    private geolocation: Geolocation,
-    private nativeGeocoder: NativeGeocoder) {
+    private authenticationService: AuthenticationService,
+    private menuCtrl: MenuController,
+    private recycleService: RecycleService,
+    private toastService: ToastService,
+    private googleApiService: GoogleApiService) {
   }
 
 
   ngOnInit() {
-    this.loadMap();
+    this.menuCtrl.enable(true);
+    this.userId = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
+    this.authenticationService.getUserById(this.userId).subscribe((res) => {
+      this.user = res;
+    })
+    this.getRecyclePoints();
   }
 
-  loadMap() {
-    this.geolocation.getCurrentPosition().then((resp) => {
+  getRecyclePoints() {
+    this.recycleService.getClosestRecyclePoints(this.userId).subscribe(
+      success => {
+        this.locals = success;
+        this.loadMap();
+      },
+      err => this.toastService.showMessage(err.message)
+    )
+  }
 
-      this.latitude = resp.coords.latitude;
-      this.longitude = resp.coords.longitude;
-      console.log('resp', resp)
-      console.log('map', google.maps);
-      
-      let latLng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
-      console.log('lt long created', latLng);
-      
-      let mapOptions = {
-        center: latLng,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      console.log('getaddressfrom coord');
-      
-      this.getAddressFromCoords(resp.coords.latitude, resp.coords.longitude);
+  addMarker(map: any, latitude: number, longitude: number, description: string, isUser: boolean) {
+    let marker = new google.maps.Marker({
+      position: new google.maps.LatLng(latitude, longitude),
+      map: this.map,
+      animation: google.maps.Animation.DROP,
+      icon: isUser ? this.iconUser : this.icon
+    });
 
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    let content = description;
 
-      this.map.addListener('dragend', () => {
+    this.addInfoWindow(marker, content);
+  }
 
-        this.latitude = this.map.center.lat();
-        this.longitude = this.map.center.lng();
 
-        this.getAddressFromCoords(this.map.center.lat(), this.map.center.lng())
-      });
-
-    }).catch((error) => {
-      console.log('Error getting location', error);
+  addInfoWindow(marker, content) {
+    let infoWindow = new google.maps.InfoWindow({
+      content: content
+    });
+    google.maps.event.addListener(marker, 'click', () => {
+      infoWindow.open(this.map, marker);
     });
   }
 
-  getAddressFromCoords(lattitude, longitude) {
-    console.log("getAddressFromCoords " + lattitude + " " + longitude);
-    let options: NativeGeocoderOptions = {
-      useLocale: true,
-      maxResults: 5
-    };
 
-    this.nativeGeocoder.reverseGeocode(lattitude, longitude, options)
-      .then((result: NativeGeocoderResult[]) => {
-        this.address = "";
-        let responseAddress = [];
-        for (let [key, value] of Object.entries(result[0])) {
-          if (value.length > 0)
-            responseAddress.push(value);
+  loadMap() {
+    let latLngUser = new google.maps.LatLng(this.user.latitude, this.user.longitude);
+    let mapOptions = {
+      center: latLngUser,
+      zoom: 12,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    this.addMarker(this.map, this.user.latitude, this.user.longitude, "Endereço Utilizador", true);
 
-        }
-        responseAddress.reverse();
-        for (let value of responseAddress) {
-          this.address += value + ", ";
-        }
-        this.address = this.address.slice(0, -2);
-      })
-      .catch((error: any) => {
-        this.address = "Address Not Available!";
-      });
-
+    this.locals.forEach(item => {
+      this.addMarker(this.map, item.latitude, item.longitude, item.localDescription, false)
+    })
   }
-
 }

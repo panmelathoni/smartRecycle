@@ -1,8 +1,3 @@
-<!-- <ion-header> -->
-<!-- <ion-toolbar color="mango">
-  <ion-title style="color:#211c1d;">Login</ion-title>
-</ion-toolbar> -->
-
 <ion-content padding="true">
   <form [formGroup]="loginForm" novalidate>
     <!-- **Logo** -->
@@ -11,47 +6,32 @@
       <ion-item lines="none">
         <img src="../../../assets/SRecycle.png" style="height: 350px;" />
       </ion-item>
-      <ion-item lines="none">
-        <ion-row>
+      <ion-row class="row-style-center">
+        <ion-item lines="none">
           <ion-icon item-left name="mail-outline" class="icon-user-pass"></ion-icon>
           <ion-label position="fixed" class="label"> e-mail</ion-label>
-        </ion-row>
-
-        <ion-input placeholder="e-mail" autocomplete="on" type="text" formControlName="userName"></ion-input>
-      </ion-item>
-
-      <ion-item lines="none">
-        <ion-row>
+          <ion-input placeholder="e-mail" autocomplete="on" type="text" formControlName="userName"></ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-row class="row-style-center">
+        <ion-item lines="none">
           <ion-icon name="lock-closed-outline" class="icon-user-pass"></ion-icon>
           <ion-label position="fixed" class="label">Password</ion-label>
-        </ion-row>
-        <ion-input placeholder="Password" autocomplete="on" type="password" formControlName="password"></ion-input>
-      </ion-item>
-
-      <ion-grid>
-        <ion-row>
-          <ion-col size="6">
+          <ion-input placeholder="Password" autocomplete="on" type="password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-row>
+        <ion-row class="row-style-center">
             <ion-item lines="none">
               <a class="forgot-password">Forgot Password?</a>
             </ion-item>
-          </ion-col>
-
-          <ion-col size="6">
             <ion-item lines="none" routerLink="/signup">
               <a class="new-account">New account!</a>
             </ion-item>
-          </ion-col>
         </ion-row>
-      </ion-grid>
-
-
     </ion-list>
-
     <div class="btn-login">
-
       <ion-button color="success" (click)="loginAction()">Login</ion-button>
     </div>
-
     <!-- <p class="enter-with-media">Ou entre com:</p>
 
     <ion-grid>
@@ -71,4 +51,3 @@
     </ion-grid> -->
   </form>
 </ion-content>
-
