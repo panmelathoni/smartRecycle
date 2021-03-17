@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row class="title">
+        <ion-menu-toggle>
+          <ion-button color="Dark">
+            <ion-icon name="menu" color="success"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+        <ion-col>
+          <ion-row class="user-title">
+            <img class="logo" src="../../../assets/teste.png" />
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          <ion-row class="user-title">
+            <ion-icon name="person-circle-outline"></ion-icon>
+            <span class="font-user-style">{{user.userName}}</span>
+          </ion-row>
+          <ion-row class="user-title">
+            <span class="font-role-style">{{user.userRole}}</span>
+          </ion-row>
+          <ion-row class="user-title">
+            <span class="font-bonus-style"> Bónus: {{user.totalBonus}}</span>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+      <ion-row *ngFor="let material of materials">
+        <ion-col>
+          <ion-card text-center padding>
+            <ion-row>
+              <ion-label>
+                <img src="assets/icon/recycle-3d-icon.png" class="image-center" />
+              </ion-label>
+              <ion-label>
+                <h2>Material: {{material.materialName}}</h2>
+                <h3>Descrição: {{material.materialDescription}}</h3>
+                <h3>Local: {{material.materialLocation}}</h3>
+                <h2 class="quantity-content">Quantidade: {{material.materialRealQuantity}}</h2>
+                <h2 class="available-content">Adicionado em: {{ material.createdOn | date:'dd/MM/yyyy' }} </h2>
+                <h2 *ngIf="material.requestCompanyId == userId" class="unavailable-content">Material Aprovado ou Aguardando aprovação para Retirada</h2>
+                <ion-button [disabled]="material.requestCompanyId != null" size="small" type="button" color="success" (click)="requestMaterial(material)">
+                  <ion-icon name="location-outline"></ion-icon> Solicitar Material
+                </ion-button>
+              </ion-label>
+            </ion-row>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

@@ -4,7 +4,6 @@ import { MenuController } from '@ionic/angular';
 import { Local } from 'src/app/models/local';
 import { UserInformation } from 'src/app/models/user-information';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { GoogleApiService } from 'src/app/services/google-api.service';
 import { RecycleService } from 'src/app/services/recycle.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { AuthConstants } from 'src/app/utils/auth-constants';
@@ -41,8 +40,8 @@ export class ClosestRecyclePointsPage implements OnInit {
     private authenticationService: AuthenticationService,
     private menuCtrl: MenuController,
     private recycleService: RecycleService,
-    private toastService: ToastService,
-    private googleApiService: GoogleApiService) {
+    private toastService: ToastService
+  ) {
   }
 
 

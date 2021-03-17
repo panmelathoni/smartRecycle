@@ -10,6 +10,8 @@ export class Recycle {
   userId: string;
   approvalUserId: string;
   requestCompanyId: string;
+  destinationCompanyId: string;
+  approvalMaterialCompanyId: string;
   recycleMaterial: {
     recyclE_MATERIAL_ID: number;
     materiaL_ENABLED: number;

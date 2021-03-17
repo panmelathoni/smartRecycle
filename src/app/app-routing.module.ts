@@ -80,7 +80,11 @@ const routes: Routes = [
   {
     path: 'chat',
     loadChildren: () => import('./pages/chat/chat.module').then( m => m.ChatPageModule)
+  },  {
+    path: 'recycle-available-materials',
+    loadChildren: () => import('./pages/recycle-available-materials/recycle-available-materials.module').then( m => m.RecycleAvailableMaterialsPageModule)
   },
+
  
 ];
 

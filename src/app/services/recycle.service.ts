@@ -99,4 +99,17 @@ export class RecycleService {
     return this.http.put(url, updateRecycleLocalData);
   }
 
+  /** Service Layer - Get all available materials*/
+  getAvailableMaterials(userId: string): Observable<any> {
+    const url = environment.apiUrl + Endpoints.getAvailableMaterial + userId;
+    return this.http.get(url);
+  }
+
+  /** Service Layer - Update Recycle Local*/
+  requestAvailableMaterial(materialData: any): Observable<any> {
+    const url = environment.apiUrl + Endpoints.requestMaterial;
+    return this.http.put(url, materialData);
+  }
+
+
 }
