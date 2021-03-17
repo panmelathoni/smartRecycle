@@ -69,19 +69,24 @@
           justify-content: space-between;
 }
 
- .title {
+ /* .title {
   position: relative;
   padding-inline: 15px;
   margin: 10px;
   padding: 0px;
   text-align: left;
   height: 37px;
-} 
+}  */
 
 ion-tolbar {
   max-height: 150px;
 } 
 
+
+.user-role{
+ float: left;
+
+}
 
 
 /*# sourceMappingURL=dashboard.page.css.map */

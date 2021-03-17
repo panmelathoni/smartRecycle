@@ -41,6 +41,7 @@
   .title{
   display: flex;
   align-items: center;
+
 }
 
 .user-title{
@@ -84,10 +85,40 @@ ion-icon{
   
   .font-bonus-style{
     font-weight: 600;
-    color: lightskyblue;
+    color: #7ecb29;
+    font-size: 14px;
+    
   }
 
   .footer-row{
     display: flex;
     align-items: center;
   }
+
+
+.user-role{
+  float: right;
+ 
+ }
+
+ .role-margin{
+  margin-right: 24px;
+  line-height: 1px;
+ }
+
+ .icon-person-circle{
+   color: #7ecb29
+ }
+
+ .logo{
+   height:39px ;
+ }
+
+ .btn-border {
+  --border-color: #7ecb29;
+  
+ }
+
+ .bonus{
+   float: left;
+ }

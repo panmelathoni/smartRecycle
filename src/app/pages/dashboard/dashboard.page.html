@@ -2,26 +2,29 @@
   <ion-toolbar>
     <ion-grid>
       <ion-row class="title">
-        <ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
           <ion-button color="Dark">
-            <ion-icon name="menu" color="success"></ion-icon>
+            <ion-icon size="large" name="menu" class="menu-icon"></ion-icon>
           </ion-button>
         </ion-menu-toggle>
-        <ion-col>
+        <!-- <ion-col>
           <ion-row class="user-title">
             <img class="logo" src="../../../assets/teste.png" />
           </ion-row>
-        </ion-col>
+        </ion-col> -->
         <ion-col>
-          <ion-row class="user-title">
-            <ion-icon name="person-circle-outline"></ion-icon>
-            <span class="font-user-style">{{user.userName}}</span>
-          </ion-row>
-          <ion-row class="user-title">
-            <span class="font-role-style">{{user.userRole}}</span>
-          </ion-row>
-          <ion-row class="user-title">
+          <ion-row class="user-title bonus">
             <span class="font-bonus-style"> Bónus: {{user.totalBonus}}</span>
+          </ion-row>
+        </ion-col>
+
+        <ion-col>
+          <ion-row class="user-role">
+            <span class="font-user-style">{{user.userName}}</span>
+            <ion-icon size="large" class="icon-person-circle" name="person-circle-outline"></ion-icon>
+          </ion-row>
+          <ion-row class="user-role role-margin">
+            <span class="font-role-style">{{user.userRole}}</span>
           </ion-row>
         </ion-col>
       </ion-row>
@@ -30,6 +33,7 @@
 </ion-header>
 <ion-content>
   <ion-grid>
+
     <ion-row>
       <ion-col col-6>
         <ion-card class="card-layout" text-center padding color="tertiary" routerLink="/change-password">
@@ -148,14 +152,18 @@
 <ion-footer>
   <ion-row class="footer-row">
     <ion-col>
+      <!-- <ion-row >
+        <img class="logo" src="../../../assets/teste.png" />
+      </ion-row> -->
+
       <ion-row class="leaf-row-design">
-        <ion-icon name="leaf-outline"></ion-icon>
+        <ion-icon name="leaf-outline" style="color:#7ecb29;"></ion-icon>
         <span class="footer-text-design">Smart Recycle</span>
       </ion-row>
     </ion-col>
     <ion-col>
       <ion-row class="button-row-design">
-        <ion-button size="small" fill="outline" color="medium" routerLink="/login">
+        <ion-button class="btn-border" size="small" fill="outline" color="dark" routerLink="/login">
           <ion-icon name="log-out-outline" style="padding-right: 3px;"></ion-icon>
           Sair
         </ion-button>
