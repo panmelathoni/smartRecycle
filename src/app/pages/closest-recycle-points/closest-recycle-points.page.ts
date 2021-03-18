@@ -60,7 +60,7 @@ export class ClosestRecyclePointsPage implements OnInit {
         this.locals = success;
         this.loadMap();
       },
-      err => this.toastService.showMessage(err.message)
+      err => this.toastService.showError(err.message)
     )
   }
 

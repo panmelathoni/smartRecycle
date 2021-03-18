@@ -54,7 +54,7 @@ export class LoginPage implements OnInit {
             this.menuCtrl.enable(true);
             var firstLogin = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_FIRST_LOGIN))));
             this.userName = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_NAME))));
-            this.toastService.showMessage('Successfully Logged In: ' +  this.userName );
+            this.toastService.showInfo('Successfully Logged In: ' +  this.userName );
             console.log('first login',  firstLogin);
             
             if (parseInt(firstLogin) == 1)
@@ -66,12 +66,12 @@ export class LoginPage implements OnInit {
             }
         },
         (error: any) => {
-          this.toastService.showMessage('Network Problem');
+          this.toastService.showError('Network Problem');
           console.log('Network Issue.');
         }
       );
     } else {
-      this.toastService.showMessage('Please enter email/username or password.');
+      this.toastService.showInfo('Please enter email/username or password.');
       console.log('Please enter email/username or password.');
     }
   }

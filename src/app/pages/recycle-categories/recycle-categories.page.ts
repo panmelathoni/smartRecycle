@@ -38,11 +38,11 @@ export class RecycleCategoriesPage implements OnInit {
         if (res) {
           this.categories = res;
         } else {
-          this.toastService.showMessage('No Item data available');
+          this.toastService.showInfo('No Item data available');
         }
       },
       (error: any) => {
-        this.toastService.showMessage('Network Problem');
+        this.toastService.showError('Network Problem');
         console.log('Network Issue.');
       }
     );

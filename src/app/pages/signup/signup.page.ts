@@ -60,13 +60,13 @@ export class SignupPage implements OnInit {
     this.authenticationService.register(this.register).subscribe(
       (res: any) => {
           
-          this.toastService.showMessage(res.message);
+          this.toastService.showInfo(res.message);
           if (res.status) 
             this.router.navigate(['email-confirm']);
         
       },
       (error: any) => {
-        this.toastService.showMessage('Network Problem');
+        this.toastService.showError('Network Problem');
         console.log('Network Issue.', error);
       }
     );

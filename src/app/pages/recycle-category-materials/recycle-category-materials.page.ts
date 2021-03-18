@@ -44,11 +44,11 @@ export class RecycleCategoryMaterialsPage implements OnInit {
           if (res) {
             this.materials = res;
           } else {
-            this.toastService.showMessage('No User data available');
+            this.toastService.showInfo('No Material data available');
           }
         },
         (error: any) => {
-          this.toastService.showMessage('Network Problem');
+          this.toastService.showError('Network Problem');
           console.log('Network Issue.', error);
         }
       );
@@ -61,11 +61,11 @@ export class RecycleCategoryMaterialsPage implements OnInit {
           if (res) {
             this.category = res;
           } else {
-            this.toastService.showMessage('No User data available');
+            this.toastService.showInfo('No Caterogy data available');
           }
         },
         (error: any) => {
-          this.toastService.showMessage('Network Problem');
+          this.toastService.showError('Network Problem');
           console.log('Network Issue.', error);
         }
       );

@@ -38,7 +38,7 @@ private getUserChat(){
 
       console.log('chat',this.chat);
     },
-    err => this.toastService.showMessage(err.message),
+    err => this.toastService.showError(err.message),
     () => console.log('ok')
   )
 }
@@ -54,7 +54,7 @@ sendMessage(){
   console.log(JSON.stringify(messageUser))
   // this.chatService.createChat(messageUser).subscribe(
   //   success => this.getUserChat(),
-  //   err => this.toastService.showMessage(err.message),
+  //   err => this.toastService.showError(err.message),
   //   () => console.log('ok')
   // );
 }

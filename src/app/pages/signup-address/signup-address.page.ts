@@ -65,13 +65,13 @@ export class SignupAddressPage implements OnInit {
     this.authenticationService.updateUserInformation(this.register).subscribe(
       (res: any) => {
 
-        this.toastService.showMessage(res.message);
+        this.toastService.showInfo(res.message);
         if (res.status)
           this.router.navigate(['dashboard']);
 
       },
       (error: any) => {
-        this.toastService.showMessage('Network Problem');
+        this.toastService.showError('Network Problem');
         console.log('Network Issue.', error);
       }
     );
@@ -83,7 +83,7 @@ export class SignupAddressPage implements OnInit {
     this.googleService.getAddressGoogleApi(address).subscribe(
       (res: any) => {
         if (res.error) {
-          this.toastService.showMessage('Endereço não encontrado');
+          this.toastService.showInfo('Endereço não encontrado');
           return;
         }
         this.register = res;
@@ -91,7 +91,7 @@ export class SignupAddressPage implements OnInit {
         this.fillFormAdress();
       },
       (error: any) => {
-        this.toastService.showMessage('Network Problem');
+        this.toastService.showError('Network Problem');
         console.log('Network Issue.', error);
       }
     );
