@@ -1,0 +1,50 @@
+.title{
+    display: flex;
+    align-items: center;
+  
+}
+
+.user-title{
+   justify-content: flex-end;
+   align-items: center;
+}
+
+.bonus{
+    float: left;
+}
+
+.font-bonus-style{
+  font-weight: 600;
+  color: #7ecb29;
+  font-size: 14px;
+}
+
+.user-role{
+  float: right;
+}
+
+.font-user-style{
+  font-size: larger;
+  padding-left: 5px;
+}
+
+.font-role-style{
+  color: gray;
+  font-size: small;
+}
+
+.role-margin{
+  margin-right: 24px;
+  line-height: 1px;
+}
+ 
+.icon-person-circle{
+  color: #7ecb29
+}
+
+ion-icon{
+  color:#211c1d ;
+  --ionicon-stroke-width: 32px;
+  // esse fica bom no verde
+  // --ionicon-stroke-width: 46px;
+}

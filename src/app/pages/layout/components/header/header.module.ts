@@ -4,19 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ChatPageRoutingModule } from './chat-routing.module';
+import { HeaderPageRoutingModule } from './header-routing.module';
 
-import { ChatPage } from './chat.page';
-import { ComponentsModule } from '../layout/components/components.module';
+import { HeaderPage } from './header.page';
+import { ComponentsModule } from '../components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ChatPageRoutingModule,
+    HeaderPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [ChatPage]
+  declarations: [HeaderPage]
 })
-export class ChatPageModule {}
+export class HeaderPageModule {}

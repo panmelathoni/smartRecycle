@@ -1,33 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row class="title">
-        <ion-menu-toggle>
-          <ion-button color="Dark">
-            <ion-icon name="menu" color="success"></ion-icon>
-          </ion-button>
-        </ion-menu-toggle>
-        <ion-col>
-          <ion-row class="user-title">
-            <img class="logo" src="../../../assets/teste.png" />
-          </ion-row>
-        </ion-col>
-        <ion-col>
-          <ion-row class="user-title">
-            <ion-icon name="person-circle-outline"></ion-icon>
-            <span class="font-user-style">{{user.userName}}</span>
-          </ion-row>
-          <ion-row class="user-title">
-            <span class="font-role-style">{{user.userRole}}</span>
-          </ion-row>
-          <ion-row class="user-title">
-            <span class="font-bonus-style"> Bónus: {{user.totalBonus}}</span>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-header>
+<app-header [displayMenu]="true"></app-header>
 <ion-content [fullscreen]="true">
   <ion-toolbar color="info">
     <ion-title class="address-description-font">Pontos de Reciclagem Próximos</ion-title>

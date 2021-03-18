@@ -1,124 +1,66 @@
 
-  .image-center{
-    margin:0 auto;
-    width: 120px;
-  }
+.image-center{
+  margin:0 auto;
+  width: 120px;
+}
   
-  .welcome-user{
-    padding-left: 5px;
-    padding-right: 30px;
-  }
+.welcome-user{
+  padding-left: 5px;
+  padding-right: 30px;
+}
   
-  .card-layout{
-    border: 1px solid  rgb(187, 191, 191) !important;
-    background: white;
-    color: black;
-  }
-
-  .card-header{
-    padding: 5px;
-  }
-
-  .card-title {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 3px;
-    font-size: 12px;
-  }
-  
-  .card-font{
-    font-size: 12px;
-    color: black;
-    font-style: italic;
-    text-align: right;
-  }
-  
-  .image-icon{
-    max-width: 24%;
-    margin-right: 5px;
-  }
-
-  .title{
-  display: flex;
-  align-items: center;
-
+.card-layout{
+  border: 1px solid  rgb(187, 191, 191) !important;
+  background: white;
+  color: black;
 }
 
-.user-title{
-justify-content: flex-end;
-align-items: center;
+.card-header{
+  padding: 5px;
 }
 
-ion-icon{
-  color:#211c1d ;
-  --ionicon-stroke-width: 32px;
-
-  // esse fica bom no verde
-  // --ionicon-stroke-width: 46px;
-
+.card-title {
+   display: flex;
+   justify-content: space-between;
+   padding-top: 3px;
+   font-size: 12px;
+}
+  
+.card-font{
+  font-size: 12px;
+  color: black;
+  font-style: italic;
+  text-align: right;
+}
+  
+.image-icon{
+  max-width: 24%;
+  margin-right: 5px;
 }
 
 .leaf-row-design{
   justify-content: flex-start;
-  }
+}
 
 .button-row-design{
   justify-content: flex-end;
-  }
-  
+}
 
 .footer-text-design{
   font-size: small;
   padding-left: 5px;
 }
 
-  .font-user-style{
-    font-size: larger;
-    padding-left: 5px;
-
-  }
-
-  .font-role-style{
-    color: gray;
-    font-size: small;
-  }
-  
-  .font-bonus-style{
-    font-weight: 600;
-    color: #7ecb29;
-    font-size: 14px;
-    
-  }
-
-  .footer-row{
+.footer-row{
     display: flex;
     align-items: center;
-  }
+}
 
-
-.user-role{
-  float: right;
- 
- }
-
- .role-margin{
-  margin-right: 24px;
-  line-height: 1px;
- }
-
- .icon-person-circle{
-   color: #7ecb29
- }
-
- .logo{
+.logo{
    height:39px ;
- }
+}
 
- .btn-border {
+.btn-border {
   --border-color: #7ecb29;
-  
- }
+}
 
- .bonus{
-   float: left;
- }

@@ -54,7 +54,7 @@ export class LoginPage implements OnInit {
             this.menuCtrl.enable(true);
             var firstLogin = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_FIRST_LOGIN))));
             this.userName = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_NAME))));
-            this.toastService.showInfo('Successfully Logged In: ' +  this.userName );
+            this.toastService.showInfo('Login com sucesso : ' +  this.userName );
             console.log('first login',  firstLogin);
             
             if (parseInt(firstLogin) == 1)

@@ -1,8 +1,6 @@
 import { Recycle } from './../../models/recycle';
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
 import { UserInformation } from 'src/app/models/user-information';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { BonusService } from 'src/app/services/bonus.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { AuthConstants } from 'src/app/utils/auth-constants';
@@ -19,18 +17,12 @@ export class RecycleBonusHistoryPage implements OnInit {
   public noresults : boolean = true;
   public userIdLogged : string;
   constructor(
-    private menuCtrl: MenuController,
     private bonusService: BonusService,
     private toastService: ToastService,
-    private authenticationService: AuthenticationService,
   ) { }
 
   ngOnInit() {
-    this.menuCtrl.enable(true);
-    this.user.userId = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
-    this.authenticationService.getUserById(this.user.userId).subscribe((res) => {
-        this.user = res;
-    })
+    this.userIdLogged = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
     this.getBonusOptions();
   }
 

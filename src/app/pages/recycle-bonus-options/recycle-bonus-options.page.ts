@@ -1,11 +1,7 @@
 import { BonusService } from './../../services/bonus.service';
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
-import { UserInformation } from 'src/app/models/user-information';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Bonus } from 'src/app/models/bonus';
 import { ToastService } from 'src/app/services/toast.service';
-import { AuthConstants } from 'src/app/utils/auth-constants';
 
 @Component({
   selector: 'app-recycle-bonus-options',
@@ -13,21 +9,13 @@ import { AuthConstants } from 'src/app/utils/auth-constants';
   styleUrls: ['./recycle-bonus-options.page.scss'],
 })
 export class RecycleBonusOptionsPage implements OnInit {
-  public user : UserInformation = new UserInformation();
   public bonusOptions: Bonus[];
   constructor(
-    private menuCtrl: MenuController,
     private bonusService: BonusService,
     private toastService: ToastService,
-    private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
-    this.menuCtrl.enable(true);
-    this.user.userId = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
-    this.authenticationService.getUserById(this.user.userId).subscribe((res) => {
-        this.user = res;
-    })
     this.getBonusOptions();
   }
 

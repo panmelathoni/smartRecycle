@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
-import { UserInformation } from 'src/app/models/user-information';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { RecycleService } from 'src/app/services/recycle.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { AuthConstants } from 'src/app/utils/auth-constants';
@@ -13,21 +10,13 @@ import { AuthConstants } from 'src/app/utils/auth-constants';
 })
 export class RecycleAvailableMaterialsPage implements OnInit {
   public materials: any[] = [];
-  public user: UserInformation = new UserInformation();
   public userId: string;
   constructor( 
-    private authenticationService: AuthenticationService,
-    private menuCtrl: MenuController,
     private recycleService: RecycleService,
     private toastService: ToastService) { }
 
   ngOnInit() {
-    this.menuCtrl.enable(true);
     this.userId = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
-    this.authenticationService.getUserById(this.userId).subscribe((res) => {
-      this.user = res;
-    })
-
     this.getAvailableMaterials();
   }
 

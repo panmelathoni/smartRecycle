@@ -1,12 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-menu-toggle>
-      <ion-button color="Dark"> <ion-icon name="menu" color="secondary"></ion-icon></ion-button>
-    </ion-menu-toggle>
-    <ion-title>Materiais da Categoria: {{category.categoryName}}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<app-header [displayMenu]="true"></app-header>
 <ion-content padding='true'>
   <ion-grid>
     <ion-row *ngFor="let material of materials">

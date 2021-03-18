@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { RecycleBonusOptionsPageRoutingModule } from './recycle-bonus-options-routing.module';
 
 import { RecycleBonusOptionsPage } from './recycle-bonus-options.page';
+import { ComponentsModule } from '../layout/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RecycleBonusOptionsPageRoutingModule
+    RecycleBonusOptionsPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [RecycleBonusOptionsPage]
 })

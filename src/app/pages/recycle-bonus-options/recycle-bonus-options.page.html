@@ -1,29 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title class="title">
-      <img class="logo" src="../../../assets/teste.png" />
-    </ion-title>
-    <ion-item lines="none">
-      <ion-menu-toggle>
-        <ion-button color="Dark"> <ion-icon name="menu" color="secondary"></ion-icon></ion-button>
-      </ion-menu-toggle>
-      <ion-avatar slot="start" class="header-avatar">
-        <ion-icon size="large" name="person-outline"></ion-icon>
-      </ion-avatar>
-
-      <ion-label class="header-user-info">
-        <h3>{{user.userName}}</h3>
-        <p>{{user.userRole}}</p>
-      </ion-label>
-
-      <ion-label class="bonus-label">
-        <ion-icon size="large" name="ribbon-outline"></ion-icon>
-        <h3>Bónus: {{user.totalBonus}}</h3>
-      </ion-label>
-    </ion-item>
-  </ion-toolbar>
-</ion-header>
-
+<app-header [displayMenu]="true"></app-header>
 <ion-content>
   <ion-grid>
     <ion-row>

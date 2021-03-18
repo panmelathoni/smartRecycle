@@ -4,11 +4,6 @@ import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canActivate: [AuthGuard]
-  },
-  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
@@ -80,10 +75,11 @@ const routes: Routes = [
   {
     path: 'chat',
     loadChildren: () => import('./pages/chat/chat.module').then( m => m.ChatPageModule)
-  },  {
+  },
+  {
     path: 'recycle-available-materials',
     loadChildren: () => import('./pages/recycle-available-materials/recycle-available-materials.module').then( m => m.RecycleAvailableMaterialsPageModule)
-  },
+  }
 
  
 ];

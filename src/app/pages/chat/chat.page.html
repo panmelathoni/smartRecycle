@@ -1,13 +1,8 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Chat</ion-title>
-    <ion-button (click)="closeChat()" class="close">
-      <ion-icon size="large" name="close-sharp"></ion-icon>      
-    </ion-button>
-  </ion-toolbar>
-</ion-header>
-
+<app-header [displayMenu]="true"></app-header>
 <ion-content>
+  <ion-toolbar color="info">
+    <ion-title class="address-description-font">Mensagens</ion-title>
+  </ion-toolbar>
   <div class="message-view">
     
     <ion-row *ngFor="let item of chat" class="grid-row-display">
@@ -17,7 +12,7 @@
             <span>{{item.message}} </span>
           </ion-row>
           <ion-row class="date-time">
-            <span>{{item.createdOn | date:'shortTime'}}</span>
+            <span>{{item.createdOn | date:'dd/MM/yyyy HH:mm:ss'}}</span>
           </ion-row>
         </ion-card>
       </ion-col>
@@ -29,7 +24,7 @@
             <span >{{item.answer}} </span>
           </ion-row>
           <ion-row class="date-time">
-            <span>{{item.updatedOn | date:'shortTime'}}</span>
+            <span>{{item.updatedOn | date:'dd/MM/yyyy HH:mm:ss'}}</span>
           </ion-row>
         </ion-card>
 

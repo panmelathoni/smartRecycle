@@ -1,6 +1,5 @@
 
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
 import { Local } from 'src/app/models/local';
 import { UserInformation } from 'src/app/models/user-information';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -38,7 +37,6 @@ export class ClosestRecyclePointsPage implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private menuCtrl: MenuController,
     private recycleService: RecycleService,
     private toastService: ToastService
   ) {
@@ -46,7 +44,6 @@ export class ClosestRecyclePointsPage implements OnInit {
 
 
   ngOnInit() {
-    this.menuCtrl.enable(true);
     this.userId = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
     this.authenticationService.getUserById(this.userId).subscribe((res) => {
       this.user = res;

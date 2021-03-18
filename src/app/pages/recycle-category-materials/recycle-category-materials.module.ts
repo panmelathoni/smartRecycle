@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { RecycleCategoryMaterialsPageRoutingModule } from './recycle-category-materials-routing.module';
 
 import { RecycleCategoryMaterialsPage } from './recycle-category-materials.page';
+import { ComponentsModule } from '../layout/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RecycleCategoryMaterialsPageRoutingModule
+    RecycleCategoryMaterialsPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [RecycleCategoryMaterialsPage]
 })

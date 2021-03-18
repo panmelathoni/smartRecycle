@@ -1,12 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-menu-toggle>
-      <ion-button color="Dark"> <ion-icon name="menu" color="secondary"></ion-icon></ion-button>
-    </ion-menu-toggle>
-    <ion-title>Recycle Categories</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<app-header [displayMenu]="true"></app-header>
 <ion-content>
   <ion-grid>
       <ion-row *ngFor="let category of categories">

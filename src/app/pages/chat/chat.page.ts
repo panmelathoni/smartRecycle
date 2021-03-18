@@ -13,58 +13,46 @@ import { AuthConstants } from 'src/app/utils/auth-constants';
   styleUrls: ['./chat.page.scss'],
 })
 export class ChatPage implements OnInit {
-  public user : UserInformation = new UserInformation(); 
-  public chat : Chat[] = [];
-  public messageChat : string;
- 
+  public user: UserInformation = new UserInformation();
+  public chat: Chat[] = [];
+  public messageChat: string;
 
-  constructor(private chatService : ChatService, private toastService : ToastService, private datePipe : DatePipe, private router: Router) {
-    this.user.userId = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH)))); 
-    this.user.userName = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_NAME)))); 
+
+  constructor(private chatService: ChatService, private toastService: ToastService, private datePipe: DatePipe, private router: Router) {
+    this.user.userId = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
+    this.user.userName = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_NAME))));
     console.log(this.user.userId)
-     this.getUserChat()
+    this.getUserChat()
 
   }
 
   ngOnInit() {
     this.chat = this.chatService.getMockChat();
-    console.log("chat", this.chat)
   }
 
-private getUserChat(){
-  this.chatService.getChatHistoryByUser(this.user.userId).subscribe(
-    success => {
-      this.chat = success;
+  private getUserChat() {
+    this.chatService.getChatHistoryByUser(this.user.userId).subscribe(
+      success => {
+        this.chat = success;
+      },
+      err => this.toastService.showError(err.message)
+    )
+  }
 
-      console.log('chat',this.chat);
-    },
-    err => this.toastService.showError(err.message),
-    () => console.log('ok')
-  )
-}
+  sendMessage() {
+    let messageUser = new Chat();
+    messageUser.userId = this.user.userId;
+    messageUser.message = this.messageChat;
+    messageUser.createdOn = this.datePipe.transform(new Date(), 'yyyy-MM-ddTHH:mm:ss');
+    messageUser.createdBy = this.user.userName;
 
-sendMessage(){
-  let messageUser = new Chat ();
-  messageUser.userId = this.user.userId;
-  messageUser.message = this.messageChat;
-  messageUser.createdOn = this.datePipe.transform(new Date(), 'yyyy-MM-ddTHH:mm:ss');
-  messageUser.createdBy = this.user.userName;
-
-  
-  console.log(JSON.stringify(messageUser))
-  // this.chatService.createChat(messageUser).subscribe(
-  //   success => this.getUserChat(),
-  //   err => this.toastService.showError(err.message),
-  //   () => console.log('ok')
-  // );
-}
-
-closeChat(){
-  this.router.navigate(['dashboard']);
-
-}
-
-
-
+    this.chatService.createChat(messageUser).subscribe(
+      success => {
+        this.toastService.showInfo('Mensagem enviada com sucesso');
+        this.getUserChat()
+      },
+      err => this.toastService.showError(err.message)
+    );
+  }
 }
 
