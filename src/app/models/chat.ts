@@ -10,7 +10,8 @@ export class Chat {
   userAnswerId: string;
   userName: string;
   userAnswerName: string;
-
+  isPhoto: boolean;
+  base64Photo: string;
   /**
    *
    */

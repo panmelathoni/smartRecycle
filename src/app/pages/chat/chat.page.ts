@@ -34,6 +34,11 @@ export class ChatPage implements OnInit {
     this.chatService.getChatHistoryByUser(this.user.userId).subscribe(
       success => {
         this.chat = success;
+        this.chat.forEach(item => {
+          if (item.isPhoto){
+            item.message = "data:image/jpeg;base64,"+ item.base64Photo
+          }
+        })
       },
       err => this.toastService.showError(err.message)
     )

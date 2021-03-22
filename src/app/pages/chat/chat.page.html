@@ -9,7 +9,8 @@
       <ion-col>
         <ion-card class="answer-card">
           <ion-row>
-            <span>{{item.message}} </span>
+            <span *ngIf="!item.isPhoto">{{item.message}} </span>
+            <img  [src]="item.message" alt="Select Image" *ngIf="item.isPhoto"/>
           </ion-row>
           <ion-row class="date-time">
             <span>{{item.createdOn | date:'dd/MM/yyyy HH:mm:ss'}}</span>
