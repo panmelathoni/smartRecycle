@@ -4,6 +4,10 @@ ion-title{
     
 }
 
+.padding-icon{
+    padding-right: 5px;
+}
+
 .date-time{
     font-size: 10px;
     float: right;
@@ -47,9 +51,8 @@ ion-title{
 }
 
 .btn-send{
-    float: right;
-    margin-top: 4%;
-    margin-right: 10px;
+    display: flex;
+    justify-content: space-around;
 }
 
 
