@@ -26,12 +26,10 @@ import { StreamingMedia } from '@ionic-native/streaming-media/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 
 
-
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [FormsModule, ReactiveFormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, FontAwesomeModule, HttpClientModule ],
+  imports: [FormsModule, ReactiveFormsModule, BrowserModule,IonicModule.forRoot(), AppRoutingModule, FontAwesomeModule, HttpClientModule ],
   providers: [
     StatusBar,
     SplashScreen,
