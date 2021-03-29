@@ -50,11 +50,17 @@ export class ChatPage implements OnInit {
     private plt: Platform) {
     this.user.userId = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
     this.user.userName = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_NAME))));
-    console.log(this.user.userId)
     this.getUserChat()
-
   }
   ngOnInit(): void {
+  }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+    setTimeout(() => {
+      this.getUserChat();
+      event.target.complete();
+    }, 1000);
   }
 
   private getUserChat() {
@@ -81,6 +87,7 @@ export class ChatPage implements OnInit {
     this.chatService.createChat(messageUser).subscribe(
       success => {
         this.toastService.showInfo('Mensagem enviada com sucesso');
+        this.messageChat = "";
         this.getUserChat()
       },
       err => this.toastService.showError(err.message)
@@ -126,9 +133,11 @@ export class ChatPage implements OnInit {
       mimeType: "image/jpg",
       params: { 'title': this.imageTitle }
     };
-    const url = environment.apiUrl + Endpoints.updloadPhotoChat;
+    const url = environment.apiUrl + Endpoints.updloadPhotoChat + this.user.userName;
     fileTransfer.upload(imagePath, url,options).then((res)=>{
       this.toastService.showSuccess("Imagem enviada com sucesso");
+      this.loadingCtrl.dismiss();
+      this.getUserChat();
     },(err)=>{
     });
  
@@ -168,12 +177,6 @@ export class ChatPage implements OnInit {
         }
       }
     );
- 
-    // If you get problems on Android, try to ask for Permission first
-    // this.imagePicker.requestReadPermission().then(result => {
-    //   console.log('requestReadPermission: ', result);
-    //   this.selectMultiple();
-    // });
   }
  
   captureImage() {
@@ -181,7 +184,6 @@ export class ChatPage implements OnInit {
       async (data: MediaFile[]) => {
         if (data.length > 0) {
           await this.doImageUpload(data[0].fullPath)
-          // this.copyFileToLocalDir(data[0].fullPath);
         }
       },
       (err: CaptureError) => console.error(err)

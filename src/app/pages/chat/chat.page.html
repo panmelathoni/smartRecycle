@@ -1,5 +1,8 @@
 <app-header [displayMenu]="true"></app-header>
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-toolbar color="info">
     <ion-title class="address-description-font">Mensagens</ion-title>
   </ion-toolbar>

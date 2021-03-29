@@ -24,14 +24,14 @@ private readonly JWT_TOKEN = 'JWT_TOKEN';
 
   login(loginData: Login): Observable<any> {
     const url = environment.apiUrl + Endpoints.login;
-    return this.http.post<any>(url, loginData)
-      .pipe(
-        tap(tokens => this.doLoginUser(loginData, tokens)),
-        mapTo(true),
-        catchError(error => {
-          alert(error.error);
-          return of(false);
-        }));
+    return this.http.post<any>(url, loginData);
+      // .pipe(
+      //   tap(tokens => this.doLoginUser(loginData, tokens)),
+      //   mapTo(true),
+      //   catchError(error => {
+      //     alert(error.error);
+      //     return of(false);
+      //   }));
   }
 
 
@@ -106,16 +106,16 @@ private readonly JWT_TOKEN = 'JWT_TOKEN';
     return localStorage.getItem(this.JWT_TOKEN);
   }
 
-  private doLoginUser(user: Login, tokens: any) {
+  doLoginUser(user: Login) {
     this.loggedUser = user.userName;
-    this.storageService.saveStorage(AuthConstants.AUTH, tokens.userId);
+    this.storageService.saveStorage(AuthConstants.AUTH, user.userId);
     this.storageService.saveStorage(AuthConstants.AUTH_PASS, user.password);
     this.storageService.saveStorage(AuthConstants.AUTH_NAME, user.userName);
-    this.storageService.saveStorage(AuthConstants.AUTH_ROLE, tokens.role);
-    this.storageService.saveStorage(AuthConstants.AUTH_FIRST_LOGIN, tokens.firstLogin);
-    this.storageService.saveToken(tokens.accessToken);
+    this.storageService.saveStorage(AuthConstants.AUTH_ROLE, user.role);
+    this.storageService.saveStorage(AuthConstants.AUTH_FIRST_LOGIN, user.firstLogin);
+    this.storageService.saveToken(user.accessToken);
 
-    this.storeTokens(tokens);
+    this.storeTokens(user);
   }
 
   private doLogoutUser() {
