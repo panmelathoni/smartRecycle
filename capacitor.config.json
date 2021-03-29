@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "smart_recicle",
+  "appName": "Smart Recycle",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
