@@ -56,7 +56,6 @@ export class ChatPage implements OnInit {
   }
 
   ngOnInit() {
-    this.chat = this.chatService.getMockChat();
     this.plt.ready().then(() => {
       let path = this.file.dataDirectory;
       if (this.file){
@@ -133,14 +132,14 @@ export class ChatPage implements OnInit {
     });
   }
  
-  async doImageUpload() {
+  async doImageUpload(imagePath: string) {
     let loader = this.loadingCtrl.create({
       cssClass: "my-custom-loader-class",
       message: "Uploading ...",
       backdropDismiss: true
     });
     (await loader).present();
-    let filename = this.imageURI.split('/').pop();
+    let filename = imagePath.split('/').pop();
     const fileTransfer: FileTransferObject = this.transfer.create();
  
     let options: FileUploadOptions = {
@@ -151,7 +150,7 @@ export class ChatPage implements OnInit {
       params: { 'title': this.imageTitle }
     };
  
-    fileTransfer.upload(this.imageURI, "http://localhost/api/upload",options).then((res)=>{
+    fileTransfer.upload(imagePath, "http://localhost/api/upload",options).then((res)=>{
  
     },(err)=>{
     });
@@ -185,9 +184,10 @@ export class ChatPage implements OnInit {
 
   pickImages() {
     this.imagePicker.getPictures({}).then(
-      results => {
+      async results => {
         for (var i = 0; i < results.length; i++) {
-          this.copyFileToLocalDir(results[i]);
+          await this.doImageUpload(results[i])
+          // this.copyFileToLocalDir(results[i]);
         }
       }
     );
@@ -201,9 +201,10 @@ export class ChatPage implements OnInit {
  
   captureImage() {
     this.mediaCapture.captureImage().then(
-      (data: MediaFile[]) => {
+      async (data: MediaFile[]) => {
         if (data.length > 0) {
-          this.copyFileToLocalDir(data[0].fullPath);
+          await this.doImageUpload(data[0].fullPath)
+          // this.copyFileToLocalDir(data[0].fullPath);
         }
       },
       (err: CaptureError) => console.error(err)
