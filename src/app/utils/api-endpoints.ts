@@ -27,6 +27,7 @@
     public static readonly getChatHistory =  '/recycle/webapi/v1/Chat/GetChatHistory';
     public static readonly createChat =  '/recycle/webapi/v1/Chat/CreateChat';
     public static readonly updateChat =  '/recycle/webapi/v1/Chat/UpdateChat';
+    public static readonly updloadPhotoChat =  '/recycle/webapi/v1/Chat/UploadPhoto';
     public static readonly getAddressGoogleApi =  '/recycle/webapi/v1/google/GetAddressGoogleapi';
     public static readonly getDirectionsGoogleApi =  '/recycle/webapi/v1/Google/GetDirectionsGoogleApi';
     public static readonly getDistanceGoogleApi =  '/recycle/webapi/v1/Google/GetDistanceGoogleApi';
