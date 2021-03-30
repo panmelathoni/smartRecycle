@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
         (res: any) => {
           console.log(res)
           if (res){
-            this.authenticationService.doLoginUser(res);
+            this.authenticationService.doLoginUser(res, this.login.password);
             this.menuCtrl.enable(true);
             this.toastService.showInfo('Login com sucesso : ' +  res.userName );
             console.log('first login',  res.firstLogin);

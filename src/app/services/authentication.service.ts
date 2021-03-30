@@ -106,10 +106,10 @@ private readonly JWT_TOKEN = 'JWT_TOKEN';
     return localStorage.getItem(this.JWT_TOKEN);
   }
 
-  doLoginUser(user: Login) {
+  doLoginUser(user: Login, password: string) {
     this.loggedUser = user.userName;
     this.storageService.saveStorage(AuthConstants.AUTH, user.userId);
-    this.storageService.saveStorage(AuthConstants.AUTH_PASS, user.password);
+    this.storageService.saveStorage(AuthConstants.AUTH_PASS, password);
     this.storageService.saveStorage(AuthConstants.AUTH_NAME, user.userName);
     this.storageService.saveStorage(AuthConstants.AUTH_ROLE, user.role);
     this.storageService.saveStorage(AuthConstants.AUTH_FIRST_LOGIN, user.firstLogin);

@@ -4,6 +4,10 @@
   
 }
 
+.padding-span{
+  padding-right: 5px;
+}
+
 .user-title{
    justify-content: flex-end;
    align-items: center;
@@ -40,6 +44,12 @@
  
 .icon-person-circle{
   color: #7ecb29
+}
+
+.available-content{
+  font-weight: 500;
+  color: skyblue;
+  font-size: 14px;
 }
 
 ion-icon{

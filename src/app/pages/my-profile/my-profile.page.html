@@ -1,0 +1,46 @@
+<app-header [displayMenu]="true"></app-header>
+<ion-content>
+  <ion-row>
+    <ion-label class="label-padding">
+      <ion-icon size="large" name="people-outline"></ion-icon>
+      <h2>Nome: {{user.userName}}</h2>
+      <h3>Perfil: {{user.userRole}}</h3>
+      <h3>Morada: {{user.completeAdress}}</h3>
+      <h3>Distrito: {{user.city}}</h3>
+      <h3>País: {{user.country}}</h3>
+      <h3>Código Postal: {{user.postalCode}}</h3>
+      <h2 class="quantity-content">Total Bónus: {{user.totalBonus}}</h2>
+      <h2 class="available-content">Logins: {{user.loginTimes}} </h2>
+      <ion-row class="padding-top-button">
+        <ion-button size="small" type="button" color="primary" (click)="changePassState()">
+          <ion-icon name="key-outline" class="icon-padding"></ion-icon> Alterar Palavra Chave
+        </ion-button>
+      </ion-row>
+    </ion-label>
+  </ion-row>
+  <ion-row *ngIf="changePass" class="row-padding">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Utilizador</ion-label>
+        <ion-input autocomplete="off" type="text" name="email" [(ngModel)]="userPassword.name" disabled></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Old Password</ion-label>
+        <ion-input autocomplete="off" type="password" name="oldpassword" [(ngModel)]="userPassword.oldpassword">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input autocomplete="off" type="password" name="newpassword" [(ngModel)]="userPassword.newpassword">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-row class="padding-top-button row-padding">
+      <ion-button size="small" expand="block" share="round" color="success" (click)="changePassword()">
+        <ion-icon name="save-outline" class="icon-padding"></ion-icon>Confirmar Alteração
+      </ion-button>
+    </ion-row>
+  </ion-row>
+</ion-content>

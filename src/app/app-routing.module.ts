@@ -74,12 +74,20 @@ const routes: Routes = [
   },
   {
     path: 'chat',
-    loadChildren: () => import('./pages/chat/chat.module').then( m => m.ChatPageModule)
+    loadChildren: () => import('./pages/chat/chat.module').then( m => m.ChatPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'recycle-available-materials',
-    loadChildren: () => import('./pages/recycle-available-materials/recycle-available-materials.module').then( m => m.RecycleAvailableMaterialsPageModule)
+    loadChildren: () => import('./pages/recycle-available-materials/recycle-available-materials.module').then( m => m.RecycleAvailableMaterialsPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'my-profile',
+    loadChildren: () => import('./pages/my-profile/my-profile.module').then( m => m.MyProfilePageModule),
+    canActivate: [AuthGuard]
   }
+
 
  
 ];
