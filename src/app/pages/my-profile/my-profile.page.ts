@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UpdatePassword } from 'src/app/models/update-password';
 import { UserInformation } from 'src/app/models/user-information';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { RecycleService } from 'src/app/services/recycle.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { AuthConstants } from 'src/app/utils/auth-constants';
@@ -34,7 +33,6 @@ export class MyProfilePage implements OnInit {
 
     this.authenticationService.getUserById(this.userId).subscribe((res) => {
         this.user = res;
-        console.log('user', this.user)
     })
   }
 

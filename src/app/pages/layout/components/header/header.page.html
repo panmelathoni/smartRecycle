@@ -3,16 +3,19 @@
     <ion-grid>
       <ion-row class="title">
         <ion-menu-toggle auto-hide="true">
-          <ion-button color="Dark">
-            <ion-icon size="large" name="menu" class="menu-icon"></ion-icon>
+          <ion-button size="small" color="Dark">
+            <ion-icon size="small" name="menu" class="menu-icon"></ion-icon>
           </ion-button>
         </ion-menu-toggle>
+        <ion-col class="no-space">
+          <ion-icon size="large" name="cash-outline"></ion-icon>
+        </ion-col>
         <ion-col>
           <ion-row class="user-title bonus">
             <span class="font-bonus-style"> Bónus: {{user.totalBonus}}</span>
           </ion-row>
-          <ion-row class="user-title bonus">
-            <span class="available-content"> Total Salvo (€): TODO</span>
+          <ion-row class="user-title bonus margin-top-row">
+            <span class="font-role-style"> Total Salvo (€): {{user.totalMoney | number}}</span>
           </ion-row>
         </ion-col>
 

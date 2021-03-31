@@ -15,7 +15,9 @@ export class UserInformation {
   updatedBy: string;
   createdOn: string;
   updatedOn: string;
+  governmentResponsibleId: string;
   totalBonus: number;
+  totalMoney: number;
      /**
       *
       */
