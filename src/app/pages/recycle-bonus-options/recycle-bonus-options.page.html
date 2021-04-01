@@ -3,7 +3,31 @@
   <ion-toolbar color="info">
     <ion-title size="small">Opções para utilização dos Bónus</ion-title>
   </ion-toolbar>
+
   <ion-grid>
+    <ion-row *ngFor="let item of bonusOptions">
+      <ion-col>
+        <ion-card text-center class="card-padding">
+          
+        
+            <ion-label class="label-width">
+              <h2>Descrição: {{item.description}}</h2>
+              <h3>Quantidade Bónus: {{item.totalBonus}}</h3>
+              <h3>Equivalente em Euros: {{item.moneyEquivalent}}</h3>
+              <ion-row class="btn-card">
+
+                <ion-button  size="small" type="button" color="success" (click)="checkoutItem($event, item)">
+                  <ion-icon style="padding-right: 4px;" name="cart"></ion-icon> Utilizar Bónus
+                </ion-button>
+              </ion-row>
+            </ion-label>
+          
+        </ion-card>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+
+  <!-- <ion-grid>
     <ion-row>
       <ion-col col-1>
       </ion-col>
@@ -38,5 +62,5 @@
         </ion-button>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 </ion-content>

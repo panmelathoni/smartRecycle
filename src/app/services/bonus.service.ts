@@ -32,5 +32,9 @@ export class BonusService {
     return this.http.get(url, this.httpOptions);
   }
 
+  updateDebitBonus(updateBonus: any): Observable<any> {
+    const url = environment.apiUrl + Endpoints.updateBonus;
+    return this.http.post(url, updateBonus, this.httpOptions);
+  }
 
 }

@@ -2,6 +2,7 @@ import { BonusService } from './../../services/bonus.service';
 import { Component, OnInit } from '@angular/core';
 import { Bonus } from 'src/app/models/bonus';
 import { ToastService } from 'src/app/services/toast.service';
+import { AuthConstants } from 'src/app/utils/auth-constants';
 
 @Component({
   selector: 'app-recycle-bonus-options',
@@ -37,9 +38,15 @@ export class RecycleBonusOptionsPage implements OnInit {
   }
 
   public checkoutItem(event: Event, item) {
+    let debitUserBonus : any = {
+      userId : JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH)))),
+      bonusOptionId : item.recycleBonusExchangeOptId
+
+    };
+    
     event.preventDefault();
     event.stopPropagation();
-    console.log('TODO : implement bonus usage', item);
+    console.log('TODO : implement bonus usage', debitUserBonus);
   }
 
 }
