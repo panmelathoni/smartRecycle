@@ -12,6 +12,8 @@ import { ToastService } from 'src/app/services/toast.service';
 export class RecycleCategoriesPage implements OnInit {
   public categories: Category[];
   public user : UserInformation = new UserInformation();
+  
+
   constructor(private recycleService : RecycleService,
     private toastService: ToastService
     ) { 
@@ -27,6 +29,7 @@ export class RecycleCategoriesPage implements OnInit {
       (res: any) => {
         if (res) {
           this.categories = res;
+          
         } else {
           this.toastService.showInfo('No Item data available');
         }
@@ -36,5 +39,10 @@ export class RecycleCategoriesPage implements OnInit {
         console.log('Network Issue.');
       }
     );
+  }
+
+  search(event){
+    console.log(event);
+    
   }
 }
