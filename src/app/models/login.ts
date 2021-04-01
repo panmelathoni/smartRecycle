@@ -7,6 +7,9 @@ userId: string;
  pin: string;
  expirationDate: string;
  isExpired: boolean;
+ role: string;
+ accessToken: string;
+ firstLogin: number;
  /**
   *
   */

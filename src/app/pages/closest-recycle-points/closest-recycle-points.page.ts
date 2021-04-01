@@ -7,8 +7,8 @@ import { RecycleService } from 'src/app/services/recycle.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { AuthConstants } from 'src/app/utils/auth-constants';
 
-declare var google;
 
+declare var google: any;
 @Component({
   selector: 'app-closest-recycle-points',
   templateUrl: './closest-recycle-points.page.html',

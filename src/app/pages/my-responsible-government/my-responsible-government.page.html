@@ -1,0 +1,28 @@
+<app-header [displayMenu]="true"></app-header>
+<ion-content>
+  <ion-toolbar color="info">
+    <ion-title size="small">Responsável no Governo</ion-title>
+  </ion-toolbar>
+  <ion-row>
+    <ion-label class="label-padding">
+      <h2>
+        <ion-icon size="large" name="business-outline" class="icon-padding"></ion-icon>{{governmentResponsible.userName}}
+      </h2>
+      <ion-row class="row-padding-top">
+        <h3>Perfil: {{governmentResponsible.userRole}}</h3>
+      </ion-row>
+      <ion-row class="row-padding-top">
+        <h3>Morada: {{governmentResponsible.completeAdress}}</h3>
+      </ion-row>
+      <ion-row class="row-padding-top">
+        <h3>Distrito: {{governmentResponsible.city}}</h3>
+      </ion-row>
+      <ion-row class="row-padding-top">
+        <h3>País: {{governmentResponsible.country}}</h3>
+      </ion-row>
+      <ion-row class="row-padding-top">
+        <h3>Código Postal: {{governmentResponsible.postalCode}}</h3>
+      </ion-row>
+    </ion-label>
+  </ion-row>
+</ion-content>

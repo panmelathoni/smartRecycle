@@ -51,23 +51,25 @@ export class LoginPage implements OnInit {
     if (!(this.login.userName === null && this.login.userName === undefined)) {
       this.authenticationService.login(this.login).subscribe(
         (res: any) => {
+          console.log(res)
+          if (res){
+            this.authenticationService.doLoginUser(res, this.login.password);
             this.menuCtrl.enable(true);
-            var firstLogin = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_FIRST_LOGIN))));
-            this.userName = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_NAME))));
-            this.toastService.showInfo('Login com sucesso : ' +  this.userName );
-            console.log('first login',  firstLogin);
+            this.toastService.showInfo('Login com sucesso : ' +  res.userName );
+            console.log('first login',  res.firstLogin);
             
-            if (parseInt(firstLogin) == 1)
+            if (parseInt(res.firstLogin) == 1)
             {
               this.router.navigate(['rgpd']);  
             }
             else{
               this.router.navigate(['dashboard']);
             }
+          }
         },
         (error: any) => {
-          this.toastService.showError('Network Problem');
-          console.log('Network Issue.');
+          this.toastService.showError('Utilizador ou senha Inválidos');
+          console.log('Network Issue.', error);
         }
       );
     } else {

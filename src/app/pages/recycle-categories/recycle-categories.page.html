@@ -1,7 +1,13 @@
 <app-header [displayMenu]="true"></app-header>
 <ion-content>
 
+
   <ion-searchbar animated (ionChange)="search($event)"></ion-searchbar>
+
+  <ion-toolbar color="info">
+    <ion-title size="small">Categorias de Reciclagem</ion-title>
+  </ion-toolbar>
+
   <ion-grid>
 
     <ion-row>

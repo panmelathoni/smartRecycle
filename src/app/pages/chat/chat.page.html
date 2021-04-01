@@ -1,7 +1,10 @@
 <app-header [displayMenu]="true"></app-header>
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-toolbar color="info">
-    <ion-title class="address-description-font">Mensagens</ion-title>
+    <ion-title size="small">Mensagens</ion-title>
   </ion-toolbar>
   <div class="message-view">
     
@@ -39,7 +42,7 @@
   </div>
 
   <div class="btn-send">
-
-    <ion-button  color="success" (click)="sendMessage()">Enviar</ion-button>
+    <ion-button  color="primary" (click)="selectMedia()"><ion-icon name="camera-outline" class="padding-icon"></ion-icon>Foto</ion-button>
+    <ion-button  color="success" (click)="sendMessage()"><ion-icon name="send-outline" class="padding-icon"></ion-icon>Enviar</ion-button>
   </div>
 </ion-content>

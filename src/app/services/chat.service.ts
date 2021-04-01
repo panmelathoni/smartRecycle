@@ -36,22 +36,4 @@ export class ChatService {
     return this.http.put(url, updateChatData, this.httpOptions);
   }
 
-  getMockChat():any{
-    var retorno: any[] = [{
-answer: "verificaremos em breve seu pedido",
-createdBy: "string",
-createdOn: "2021-03-08T13:18:14.717",
-message: "Eu sou lindo e inteligente",
-updatedBy: "string",
-updatedOn: "2021-03-08T13:18:14.717",
-userAnswerId: "1a321d25-a17a-40ca-9f54-a4c66e8a071f",
-userAnswerName: "pan",
-userChatId: 1,
-userId: "0caa4bcf-cdc9-4ca4-aaa7-d5dbd22db04a",
-userName: "recycle",
-    }]
-    return retorno;
-  }
-
-
 }

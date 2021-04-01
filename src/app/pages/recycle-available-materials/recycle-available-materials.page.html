@@ -1,5 +1,8 @@
 <app-header [displayMenu]="true"></app-header>
 <ion-content>
+  <ion-toolbar color="info">
+    <ion-title size="small">Materiais Disponíveis para Coleta</ion-title>
+  </ion-toolbar>
   <ion-grid>
       <ion-row *ngFor="let material of materials">
         <ion-col>

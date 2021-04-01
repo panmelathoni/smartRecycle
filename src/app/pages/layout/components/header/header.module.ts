@@ -17,6 +17,6 @@ import { ComponentsModule } from '../components.module';
     HeaderPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [HeaderPage]
+  // declarations: [HeaderPage]
 })
 export class HeaderPageModule {}
