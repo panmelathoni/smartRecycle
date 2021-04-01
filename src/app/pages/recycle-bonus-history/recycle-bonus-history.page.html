@@ -1,11 +1,14 @@
 <app-header [displayMenu]="true"></app-header>
 <ion-content>
   <ion-toolbar color="info">
-    <ion-title size="small">Histórico Utilização dos Bónus/ion-title>
+    <ion-title size="small">Histórico Utilização dos Bónus</ion-title>
   </ion-toolbar>
   <ion-item *ngIf="noresults">
    <span>Não existem resultados</span>  
   </ion-item>
+  <ion-button size="small" type="button" color="success" (click)="throwBounsUsageEvent()">
+    <ion-icon name="location-outline"></ion-icon> Fogo no Borrego
+  </ion-button>
   <ion-grid>
     <ion-row *ngFor="let item of bonusHistory">
       <ion-col col-6>

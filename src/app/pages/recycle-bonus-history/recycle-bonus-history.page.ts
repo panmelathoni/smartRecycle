@@ -4,6 +4,7 @@ import { UserInformation } from 'src/app/models/user-information';
 import { BonusService } from 'src/app/services/bonus.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { AuthConstants } from 'src/app/utils/auth-constants';
+import { Events } from 'src/app/utils/events.service';
 
 @Component({
   selector: 'app-recycle-bonus-history',
@@ -19,6 +20,7 @@ export class RecycleBonusHistoryPage implements OnInit {
   constructor(
     private bonusService: BonusService,
     private toastService: ToastService,
+    private eventBonusUsage: Events 
   ) { }
 
   ngOnInit() {
@@ -42,5 +44,9 @@ export class RecycleBonusHistoryPage implements OnInit {
         console.log('Network Issue.');
       }
     );
+  }
+
+  public throwBounsUsageEvent(){
+    this.eventBonusUsage.publish('user:bonus', "Id 12345");
   }
 }
