@@ -47,6 +47,6 @@ export class RecycleBonusHistoryPage implements OnInit {
   }
 
   public throwBounsUsageEvent(){
-    this.eventBonusUsage.publish('user:bonus', "Id 12345");
+    this.eventBonusUsage.publish('user:bonus', "");
   }
 }

@@ -17,8 +17,10 @@ export class HeaderPage implements OnInit {
     private authenticationService: AuthenticationService,
     private menuCtrl: MenuController,
     private eventBonusUsage: Events) {
-    this.eventBonusUsage.subscribe('user:bonus', (data: any) => {
-      console.log('User usou bonus ', data);
+    this.eventBonusUsage.subscribe('user:bonus', () => {
+      this.authenticationService.getUserById(this.user.userId).subscribe((res) => {
+        this.user = res;
+      })
     });
 
   }
