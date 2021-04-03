@@ -1,3 +1,4 @@
+import { RecycleService } from 'src/app/services/recycle.service';
 import { Recycle } from './../../models/recycle';
 import { Component, OnInit } from '@angular/core';
 import { UserInformation } from 'src/app/models/user-information';
@@ -15,26 +16,48 @@ export class RecycleBonusHistoryPage implements OnInit {
 
   public user: UserInformation = new UserInformation();
   public bonusHistory: Recycle[] = [];
-  public noresults : boolean = true;
+  public recycleHistory: any;
+  public noresultsBonus : boolean = true;
+  public noresultsRecycle : boolean = true;
   public userIdLogged : string;
   constructor(
     private bonusService: BonusService,
+    private recycleService: RecycleService,
     private toastService: ToastService,
     private eventBonusUsage: Events 
   ) { }
 
   ngOnInit() {
     this.userIdLogged = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
-    this.getBonusOptions();
+    this.getBonusUsage();
+    this.getRecycleHistory();
   }
 
-  public getBonusOptions() {    
+  public getBonusUsage() {    
     this.bonusService.getBonusUsageHistoryByUser(this.userIdLogged).subscribe(
       (res: any) => {
         if (res) {
-          console.log(res);
-          this.noresults = res.length == 0 ? true : false;
+          console.log('bonus history', res);
+          this.noresultsBonus = res.length == 0 ? true : false;
           this.bonusHistory = res;
+        } else {
+          this.toastService.showInfo('No Item data available');
+        }
+      },
+      (error: any) => {
+        this.toastService.showError('Network Problem');
+        console.log('Network Issue.');
+      }
+    );
+  }
+
+  public getRecycleHistory(){
+    this.recycleService.getHistoryByUser(this.userIdLogged).subscribe(
+      (res: any) => {
+        if (res) {
+          console.log('recycle history', res);
+          this.noresultsRecycle = res.length == 0 ? true : false;
+          this.recycleHistory = res;
         } else {
           this.toastService.showInfo('No Item data available');
         }

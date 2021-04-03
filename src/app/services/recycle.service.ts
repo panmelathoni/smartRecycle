@@ -34,8 +34,8 @@ export class RecycleService {
   }
 
   /** Service Layer - Get User History Data*/
-  getHistoryByUser(): Observable<any> {
-    const url = environment.apiUrl + Endpoints.getChatHistoryByUser;
+  getHistoryByUser(userId: string): Observable<any> {
+    const url = environment.apiUrl + Endpoints.getRecycleHistoryByUser + userId;
     return this.http.get(url);
   }
 

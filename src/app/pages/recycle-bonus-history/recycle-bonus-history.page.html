@@ -1,29 +1,48 @@
 <app-header [displayMenu]="true"></app-header>
 <ion-content>
   <ion-toolbar color="info">
-    <ion-title size="small">Histórico Utilização dos Bónus</ion-title>
+    <ion-title size="small">Reciclagens e Utilização dos Bónus</ion-title>
   </ion-toolbar>
-  <ion-item *ngIf="noresults">
-   <span>Não existem resultados</span>  
+  <ion-item *ngIf="noresultsRecycle">
+    <span>Não existem resultados</span>
   </ion-item>
-  <ion-button size="small" type="button" color="success" (click)="throwBounsUsageEvent()">
-    <ion-icon name="location-outline"></ion-icon> Fogo no Borrego
-  </ion-button>
   <ion-grid>
-    <ion-row *ngFor="let item of bonusHistory">
-      <ion-col col-6>
-        <ion-card text-center padding>
-          <ion-item>
-            <img src={{item.recycleMaterial.materiaL_PHOTO}} c class="image-center" />
-          </ion-item>
-          <ion-label>
-            <h2>Material: {{item.recycleMaterial.materiaL_NAME}</h2>
-            <h3>Descrição: {{item.recycleMaterial.materiaL_DESCRIPTION}}</h3>
-            <h2 class="price-content">Quantidade Bónus: {{item.bonusEarned}}</h2>
-            <h2>Quantidade Material Estimado: {{item.materialEstimatedQuantity}}</h2>
-            <h2>Quantidade Material Aprovado: {{item.materialRealQuantity}}</h2>
-            <h2>Aprovador Por: {{item.approvalUserId}}</h2>
-            <h2>Requisitado Por: {{item.requestCompanyId}}</h2>
+    <ion-item *ngIf="!noresultsRecycle">
+      <span>Histórico de Reciclagens</span>
+    </ion-item>
+    <ion-row class="no-space" *ngFor="let item of recycleHistory">
+      <ion-col class="no-space">
+        <ion-card text-center class="recycle-card">
+          <ion-label class="label-width">
+            <h4>Material: <span class="font-text">{{item.materialName}}</span></h4>
+            <h4>Quantidade Real: <span class="font-text">{{item.materialRealQuantity}}</span></h4>
+            <h4>Quantidade Estimada: <span class="font-text">{{item.materialEstimatedQuantity}}</span></h4>
+            <h4>Quantidade Bónus: <span class="font-text">{{item.bonusEarned}}</span></h4>
+            <h4>Aprovador no Governo: <span class="font-text">{{item.approvalUserName}}</span></h4>
+            <h4>Destinado a: <span class="font-text">{{item.companyName}}</span></h4>
+            <h4>Reciclado em: <span class="font-text">{{item.createdOn  | date:'dd/MM/yyyy HH:mm:ss'}}</span></h4>
+          </ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-item *ngIf="noresultsBonus">
+    <span>Não existem resultados</span>
+  </ion-item>
+  <ion-grid>
+    <ion-item *ngIf="!noresultsBonus">
+      <span>Histórico de Bónus</span>
+    </ion-item>
+    <ion-row class="no-space" *ngFor="let item of bonusHistory">
+      <ion-col class="no-space">
+        <ion-card text-center class="bonus-card">
+          <ion-label class="label-width">
+            <h4>Descrição: <span class="font-text">{{item.recycleBonusOption.description}}</span></h4>
+            <h4>Quantidade Bónus: <span class="font-text">{{item.recycleBonusOption.totalBonus}}</span></h4>
+            <h4>Equivalente em Euros: <span class="font-text">{{item.recycleBonusOption.moneyEquivalent}}</span></h4>
+            <h4>Utilizado em: <span class="font-text">{{item.createdOn  | date:'dd/MM/yyyy HH:mm:ss'}}</span></h4>
           </ion-label>
         </ion-card>
       </ion-col>

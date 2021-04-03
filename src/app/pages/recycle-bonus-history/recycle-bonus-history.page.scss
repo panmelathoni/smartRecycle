@@ -1,8 +1,22 @@
-.image-center{
-    margin:0 auto;
-    width: 250px;
-  }
+.recycle-card {
+    background:aliceblue;
+    padding-top:10px;
+    padding-left:10px;
+    padding-bottom:10px;
+}
 
-  .bonus-content{
-    color: #ffd534;
-  }
+.bonus-card {
+  background:lightgoldenrodyellow;
+  padding-top:10px;
+  padding-left:10px;
+  padding-bottom:10px;
+}
+
+.font-text{
+  font-weight: 500;
+}
+
+.no-space{
+  margin: 0px;
+  padding: 0px;
+}

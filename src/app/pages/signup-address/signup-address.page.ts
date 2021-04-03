@@ -19,20 +19,22 @@ export class SignupAddressPage implements OnInit {
   submitted = false;
   public register: Address = new Address();
   public registerForm: FormGroup;
-
+  public userIdLogged : string;
+  public userRole : string;
 
 
   constructor(private router: Router,
     private toastService: ToastService,
     private menuCtrl: MenuController,
     public formBuilder: FormBuilder,
-    private storageService: StorageService,
     private authenticationService: AuthenticationService,
     private googleService: GoogleApiService) { 
     }
 
   ngOnInit() {
     this.menuCtrl.enable(false);
+    this.userIdLogged = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
+    this.userRole = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH_ROLE))));
     this.registerForm = this.formBuilder.group({
       street: ['', [Validators.required]],
       concelho: ['', [Validators.required]],
@@ -59,13 +61,14 @@ export class SignupAddressPage implements OnInit {
     this.register.postalCode = this.registerForm.controls['postalCode'].value;
     this.register.country = this.registerForm.controls['country'].value;
     this.register.neighborhood = this.registerForm.controls['freguesia'].value;
-    this.register.userId = await this.storageService.readFromStorage(AuthConstants.AUTH);
-    // console.log(JSON.stringify(this.register))
+    this.register.userId = this.userIdLogged;
+    this.register.userRole = this.userRole;
+    console.log(JSON.stringify(this.register))
 
     this.authenticationService.updateUserInformation(this.register).subscribe(
       (res: any) => {
 
-        this.toastService.showInfo(res.message);
+        this.toastService.showInfo("Sucesso ao atualizar dados do Utilizador");
         if (res.status)
           this.router.navigate(['dashboard']);
 

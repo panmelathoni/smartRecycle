@@ -36,7 +36,7 @@
     public static readonly getMaterialByCategory =  '/recycle/webapi/v1/Recycle/GetMaterialByCategory/';
     public static readonly getAllRecycleMaterials =  '/recycle/webapi/v1/Recycle/GetAllMaterials';
     public static readonly getCategoryById =  '/recycle/webapi/v1/Recycle/GetRecycleCategoryById/';
-    public static readonly getRecycleHistoryByUser =  '/recycle/webapi/v1/Recycle/GetRecycleHistoryByUser';
+    public static readonly getRecycleHistoryByUser =  '/recycle/webapi/v1/Recycle/GetRecycleHistoryByUser/';
     public static readonly createMaterial =  '/recycle/webapi/v1/Recycle/CreateMaterial';
     public static readonly updateMaterial=  '/recycle/webapi/v1/Recycle/UpdateMaterial';
     public static readonly createCategory =  '/recycle/webapi/v1/Recycle/CreateCategory';
