@@ -27,6 +27,18 @@ export class RecycleService {
     return this.http.get(url);
   }
 
+  /** Service Layer - Get Material by Category Id*/
+  getMaterialById(materialId: number): Observable<any> {
+    const url = environment.apiUrl + Endpoints.getMaterialById + materialId;
+    return this.http.get(url);
+  }
+
+  /** Service Layer - Get Material by Category Id*/
+  getAllMaterials(): Observable<any> {
+    const url = environment.apiUrl + Endpoints.getAllRecycleMaterials;
+    return this.http.get(url);
+  }
+
   /** Service Layer - Get Category By Id*/
   getCategorylById(categoryId: number): Observable<any> {
     const url = environment.apiUrl + Endpoints.getCategoryById + categoryId;

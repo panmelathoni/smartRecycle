@@ -1,43 +1,34 @@
 <app-header [displayMenu]="true"></app-header>
 <ion-content>
-
-
-  <ion-searchbar animated (ionChange)="search($event)"></ion-searchbar>
-
   <ion-toolbar color="info">
     <ion-title size="small">Categorias de Reciclagem</ion-title>
   </ion-toolbar>
-
   <ion-grid>
-
     <ion-row>
       <ion-col *ngFor="let category of categories" size="6">
-        <ion-card  text-center padding [routerLink]="['./', category.recycleCategoryId]">
-
-          <ion-label>
-            <!-- <h2>Id: {{category.recycleCategoryId}}</h2> -->
-            <h3>Nome: {{category.categoryName}}</h3>
-            <!-- <h3>Habilitado:<ion-toggle color="success" [(ngModel)]="category.categoryEnabled" disabled></ion-toggle></h3> -->
-            <!-- <h2>Cor: {{category.categoryColor}}</h2> -->
-            <!-- <h2>Iniciais: {{category.categoryInitials}}</h2> -->
-            <h2>Logo: {{category.categoryLogo}}</h2>
-            <img class="recycle-logo" src="../../../assets/reciclagemAmarelo.png" alt="Reciclagem Amarelo">
-            <ion-button class="categories-list-btn" size="small" [routerLink]="['./', category.recycleCategoryId]">
+        <ion-card text-center class="card-padding">
+          <ion-row class="image-center"> 
+            <ion-label class="recycle-logo"> 
+              <img [src]="category.categoryLogo" alt="Reciclagem Amarelo">
+            </ion-label>
+            <ion-label>
+              <h2>{{category.categoryName}}</h2>
+            </ion-label>
+          </ion-row>
+          <ion-row class="categories-list-btn" >
+            <ion-button size="small" [routerLink]="['./', category.recycleCategoryId]">
               <ion-icon size="small" name="list"></ion-icon>
+              Materiais
             </ion-button>
-          </ion-label>
-          <!-- <ion-button color="danger" (click)="deleteUser(item)">
-              <ion-icon name="trash-outline"></ion-icon>
-            </ion-button> -->
+          </ion-row>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-    <ion-fab-button routerLink="../checkout">
-      <ion-icon name="checkmark-circle-outline"></ion-icon>
+    <ion-fab-button [routerLink]="['./', 0]" size="small">
+      <ion-icon name="search-outline"></ion-icon>
     </ion-fab-button>
+    <span style="font-size: smaller;">Ver todos</span>
   </ion-fab>
-
-</ion-content>
+  </ion-content>

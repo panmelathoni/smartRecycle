@@ -1,6 +1,5 @@
 .image-center{
-    margin:0 auto;
-    width: 250px;
+justify-content: center;
   }
 
   .price-content{
@@ -8,9 +7,10 @@
   }
 
   .recycle-logo{
-    height: 80px;
+    max-width: 100px;
   }
 
   .categories-list-btn{
-    float: right;
+    justify-content: flex-end;
+    margin-top: 10px;
   }

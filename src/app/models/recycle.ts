@@ -1,5 +1,5 @@
 export class Recycle {
-    recycleHistoryId: number;
+  recycleHistoryId: number;
   materialEstimatedQuantity: number;
   materialRealQuantity: number;
   bonusEarned: number;
@@ -12,23 +12,12 @@ export class Recycle {
   requestCompanyId: string;
   destinationCompanyId: string;
   approvalMaterialCompanyId: string;
-  recycleMaterial: {
-    recyclE_MATERIAL_ID: number;
-    materiaL_ENABLED: number;
-    materiaL_BONUS_QUANTITY: number;
-    materiaL_PHOTO: string;
-    materiaL_DESCRIPTION: string;
-    materiaL_NAME: string;
-    createD_BY: string;
-    updateD_BY: string;
-    createD_ON: string;
-    updateD_ON: string;
-    recyclE_CATEGORY_ID: number;
+  userName: string;
+  recycleMaterialId: number;
+  companyName: string;
+  approvalUserName: string;
+  materialName: string
+  constructor() {
+
   }
-     /**
-      *
-      */
-     constructor() {
-        
-     }
-    }
+}

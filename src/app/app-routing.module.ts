@@ -86,14 +86,26 @@ const routes: Routes = [
     path: 'my-profile',
     loadChildren: () => import('./pages/my-profile/my-profile.module').then( m => m.MyProfilePageModule),
     canActivate: [AuthGuard]
-  },  {
+  },
+  {
     path: 'my-responsible-government',
     loadChildren: () => import('./pages/my-responsible-government/my-responsible-government.module').then( m => m.MyResponsibleGovernmentPageModule)
+  },
+  {
+    path: 'confirm-recycle',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/confirm-recycle/confirm-recycle.module').then(m => m.ConfirmRecyclePageModule),
+        canActivate: [AuthGuard]
+      },
+      {
+        path: ':recycleMaterialId',
+        loadChildren: () => import('./pages/confirm-recycle/confirm-recycle.module').then(m => m.ConfirmRecyclePageModule),
+        canActivate: [AuthGuard]
+      }
+    ]
   }
-
-
-
- 
 ];
 
 @NgModule({

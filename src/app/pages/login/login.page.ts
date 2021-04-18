@@ -17,11 +17,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginPage implements OnInit {
   public login: Login = new Login();
   public loginForm: FormGroup;
-  private userName: string;
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
-    private storageService: StorageService,
     private toastService: ToastService,
     private menuCtrl: MenuController,
     public formBuilder: FormBuilder

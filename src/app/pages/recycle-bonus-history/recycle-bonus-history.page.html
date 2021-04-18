@@ -13,6 +13,7 @@
     <ion-row class="no-space" *ngFor="let item of recycleHistory">
       <ion-col class="no-space">
         <ion-card text-center class="recycle-card">
+
           <ion-label class="label-width">
             <h4>Material: <span class="font-text">{{item.materialName}}</span></h4>
             <h4>Quantidade Real: <span class="font-text">{{item.materialRealQuantity}}</span></h4>
@@ -20,8 +21,23 @@
             <h4>Quantidade Bónus: <span class="font-text">{{item.bonusEarned}}</span></h4>
             <h4>Aprovador no Governo: <span class="font-text">{{item.approvalUserName}}</span></h4>
             <h4>Destinado a: <span class="font-text">{{item.companyName}}</span></h4>
-            <h4>Reciclado em: <span class="font-text">{{item.createdOn  | date:'dd/MM/yyyy HH:mm:ss'}}</span></h4>
+            <h4>Reciclado em: <span class="font-text">{{item.createdOn | date:'dd/MM/yyyy HH:mm:ss'}}</span></h4>
           </ion-label>
+
+          <ion-label>
+            <p class="style-status" 
+            [ngClass]="{
+             'blue' : item.historyStatus === 'Entregue a Empresa',
+             'green' : item.historyStatus === 'Aprovado',
+             'yellow' : item.historyStatus === 'Aprovação em andamento' 
+             }">
+              <ion-icon name="alert-outline" *ngIf="item.historyStatus === 'Aprovação em andamento'"></ion-icon>
+              <ion-icon name="checkmark-outline" *ngIf="item.historyStatus === 'Aprovado'"></ion-icon>
+              <ion-icon name="storefront-outline" *ngIf="item.historyStatus === 'Entregue a Empresa'"></ion-icon>
+              Status: <span class="font-text">{{item.historyStatus}}</span>
+            </p>
+          </ion-label>
+
         </ion-card>
       </ion-col>
     </ion-row>
@@ -42,7 +58,7 @@
             <h4>Descrição: <span class="font-text">{{item.recycleBonusOption.description}}</span></h4>
             <h4>Quantidade Bónus: <span class="font-text">{{item.recycleBonusOption.totalBonus}}</span></h4>
             <h4>Equivalente em Euros: <span class="font-text">{{item.recycleBonusOption.moneyEquivalent}}</span></h4>
-            <h4>Utilizado em: <span class="font-text">{{item.createdOn  | date:'dd/MM/yyyy HH:mm:ss'}}</span></h4>
+            <h4>Utilizado em: <span class="font-text">{{item.createdOn | date:'dd/MM/yyyy HH:mm:ss'}}</span></h4>
           </ion-label>
         </ion-card>
       </ion-col>

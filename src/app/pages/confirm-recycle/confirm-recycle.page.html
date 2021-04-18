@@ -1,0 +1,64 @@
+<app-header [displayMenu]="true"></app-header>
+<ion-content padding='true'>
+  <ion-toolbar color="info">
+    <ion-title size="small">Reciclar Material</ion-title>
+  </ion-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-card text-center class="card-padding">
+        <ion-label>
+          <h2>Material: {{material.materialName}}</h2>
+          <h3>Descrição: {{material.materialDescription}}</h3>
+          <h3>Categoria: {{material.materialCategory}}</h3>
+          <h3 class="quantity-content">Bónus por Item: {{material.bonusQuantity}}</h3>
+        </ion-label>
+      </ion-card>
+    </ion-row>
+    <ion-row>
+      <form [formGroup]="materialForm" novalidate>
+        <ion-item>
+          <ion-label position="floating" class="label">
+            <ion-icon name="reorder-three-outline"></ion-icon>
+            Entre a quantidade de material (items)
+          </ion-label>
+          <ion-input autocomplete="off" type="number" formControlName="materialQuantity"></ion-input>
+        </ion-item>
+      </form>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="materialSuccess">
+    <ion-row>
+      <ion-card text-center class="card-padding">
+        <ion-label>
+          <p>Reciclagem efetuada com sucesso, os bónus serão creditados em sua conta
+            automaticamente após aprovação do seu responsável no governo. O status pode ser
+            acompanhado no ecrã de histórico.
+          </p>
+        </ion-label>
+        <ion-row class="list-btn">
+          <ion-button color="primary" size="small" [routerLink]="['/recycle-bonus-history']">
+            <ion-icon name="albums-outline"></ion-icon>
+            Ver Histórico
+          </ion-button>
+          <ion-button color="success" size="small" [routerLink]="['/categories', 0]">
+            <ion-icon size=" small" name="reload-circle-outline">
+            </ion-icon>
+            Nova Reciclagem
+          </ion-button>
+        </ion-row>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="!materialSuccess">
+    <ion-fab-button (click)="confirmMaterialRecycle()" size="small">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-fab-button>
+    <span style="font-size: smaller;">Confirmar</span>
+  </ion-fab>
+  <ion-fab horizontal="start" vertical="bottom" slot="fixed" *ngIf="!materialSuccess">
+    <ion-fab-button color="danger" [routerLink]="['/categories', 0]" size="small">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-fab-button>
+    <span style="font-size: smaller;">Cancelar</span>
+  </ion-fab>
+</ion-content>

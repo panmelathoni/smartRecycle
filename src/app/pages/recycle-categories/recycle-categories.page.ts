@@ -3,6 +3,7 @@ import { Category } from 'src/app/models/category';
 import { UserInformation } from 'src/app/models/user-information';
 import { RecycleService } from 'src/app/services/recycle.service';
 import { ToastService } from 'src/app/services/toast.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-recycle-categories',
@@ -15,7 +16,8 @@ export class RecycleCategoriesPage implements OnInit {
   
 
   constructor(private recycleService : RecycleService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private sanitizer: DomSanitizer
     ) { 
     }
 
@@ -28,8 +30,10 @@ export class RecycleCategoriesPage implements OnInit {
     this.recycleService.getRecycleCategories().subscribe(
       (res: any) => {
         if (res) {
+          res.forEach(element => {
+            element.categoryLogo = this.sanitizer.bypassSecurityTrustUrl(element.categoryLogo);
+          });
           this.categories = res;
-          
         } else {
           this.toastService.showInfo('No Item data available');
         }
@@ -41,8 +45,5 @@ export class RecycleCategoriesPage implements OnInit {
     );
   }
 
-  search(event){
-    console.log(event);
-    
-  }
+
 }

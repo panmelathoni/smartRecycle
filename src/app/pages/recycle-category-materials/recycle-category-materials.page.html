@@ -2,24 +2,43 @@
 <ion-content padding='true'>
   <ion-toolbar color="info">
     <ion-title size="small">Materiais de Reciclagem</ion-title>
+    <ion-searchbar animated placeholder="Pesquisar Material" (ionChange)="search($event)"></ion-searchbar>
   </ion-toolbar>
-  <ion-grid>
+  <ion-grid *ngIf="materials.length <= 0">
+    <ion-row>
+      <ion-card text-center class="card-padding">
+        <ion-label>
+          <p>Não encontramos resultados para o material pesquisado,
+            Uilize a opção chat/mensagens para obter auxílio.
+          </p>
+        </ion-label>
+        <ion-row class="categories-list-btn">
+          <ion-button color="primary" size="small" [routerLink]="['/chat']">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+            Mensagens
+          </ion-button>
+        </ion-row>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="materials.length > 0">
     <ion-row *ngFor="let material of materials">
       <ion-col col-6>
         <ion-card text-center padding>
           <ion-label>
-            <h2>Id: {{material.recycleMaterialId}}</h2>
             <h2>Nome: {{material.materialName}}</h2>
-            <h3>Habilitado:<ion-toggle color="success" [(ngModel)]="material.materialEnabled" disabled></ion-toggle></h3>
             <h2>Quantidade Bónus: {{material.materialBonusQuantity}}</h2>
-            <h3>Foto: {{material.materialPhoto}}</h3>
             <h2>Descrição: {{material.materialDescription}}</h2>
-          </ion-label>
-          <!-- <ion-button color="danger" (click)="deleteUser(item)">
-            <ion-icon name="trash-outline"></ion-icon>
-          </ion-button> -->
+            <h3>Foto: {{material.materialPhoto}}</h3>
+            <ion-row class="categories-list-btn">
+              <ion-button color="success" size="small" [routerLink]="['/confirm-recycle', material.recycleMaterialId]">
+                <ion-icon size="small" name="reload-circle-outline"></ion-icon>
+                Reciclar
+              </ion-button>
+            </ion-row>
+          </ion-label> 
         </ion-card>
       </ion-col>
     </ion-row>
-</ion-grid>
+  </ion-grid>
 </ion-content>

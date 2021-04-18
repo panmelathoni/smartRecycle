@@ -34,6 +34,7 @@
     public static readonly getRecycleCategories =  '/recycle/webapi/v1/Recycle/GetRecycleCategories';
     public static readonly getAllRecycleCategories =  '/recycle/webapi/v1/Recycle/GetAllRecycleCategories';
     public static readonly getMaterialByCategory =  '/recycle/webapi/v1/Recycle/GetMaterialByCategory/';
+    public static readonly getMaterialById =  '/recycle/webapi/v1/Recycle/GetMaterialById/';
     public static readonly getAllRecycleMaterials =  '/recycle/webapi/v1/Recycle/GetAllMaterials';
     public static readonly getCategoryById =  '/recycle/webapi/v1/Recycle/GetRecycleCategoryById/';
     public static readonly getRecycleHistoryByUser =  '/recycle/webapi/v1/Recycle/GetRecycleHistoryByUser/';
