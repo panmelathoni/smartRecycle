@@ -37,7 +37,6 @@ export class RecycleBonusHistoryPage implements OnInit {
     this.bonusService.getBonusUsageHistoryByUser(this.userIdLogged).subscribe(
       (res: any) => {
         if (res) {
-          console.log('bonus history', res);
           this.noresultsBonus = res.length == 0 ? true : false;
           this.bonusHistory = res;
         } else {
@@ -55,7 +54,6 @@ export class RecycleBonusHistoryPage implements OnInit {
     this.recycleService.getHistoryByUser(this.userIdLogged).subscribe(
       (res: any) => {
         if (res) {
-          console.log('recycle history', res);
           this.noresultsRecycle = res.length == 0 ? true : false;
           this.recycleHistory = res;
         } else {
