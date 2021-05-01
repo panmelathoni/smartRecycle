@@ -123,5 +123,11 @@ export class RecycleService {
     return this.http.put(url, materialData);
   }
 
+  /** Service Layer - Confirm Take Out*/
+  confirmTakeOutMaterial(recycleHistoryId: number): Observable<any> {
+    const url = environment.apiUrl + Endpoints.confirmTakeOutMaterial;
+    return this.http.post(url, recycleHistoryId);
+  }
+
 
 }

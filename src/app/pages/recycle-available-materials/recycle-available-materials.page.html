@@ -17,9 +17,14 @@
                 <h3>Local: {{material.materialLocation}}</h3>
                 <h2 class="quantity-content">Quantidade: {{material.materialRealQuantity}}</h2>
                 <h2 class="available-content">Adicionado em: {{ material.createdOn | date:'dd/MM/yyyy' }} </h2>
-                <h2 *ngIf="material.requestCompanyId == userId" class="unavailable-content">Material Aprovado ou Aguardando aprovação para Retirada</h2>
+                <h2 *ngIf="material.requestCompanyId == userId && material.materialTookOut != 0" class="already-took">Material Retirado</h2>
+                <h2 *ngIf="material.requestCompanyId == userId && material.materialTookOut == 0" class="unavailable-content">Material Aprovado ou Aguardando aprovação para Retirada</h2>
+          
                 <ion-button [disabled]="material.requestCompanyId != null" size="small" type="button" color="success" (click)="requestMaterial(material)">
                   <ion-icon name="location-outline"></ion-icon> Solicitar Material
+                </ion-button>
+                <ion-button [disabled]="material.requestCompanyId != userId || material.materialTookOut == 1" size="small" type="button" color="primary" (click)="confirmTakeOut(material)">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon> Confirmar Retirada
                 </ion-button>
               </ion-label>
             </ion-row>

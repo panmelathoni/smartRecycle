@@ -32,6 +32,7 @@
   color: black;
   font-style: italic;
   text-align: right;
+  padding-bottom: 10px;
 }
   
 .image-icon{
@@ -63,5 +64,10 @@
 
 .btn-border {
   --border-color: #7ecb29;
+}
+
+.no-space {
+  padding: 0px;
+  margin: 0px;
 }
 

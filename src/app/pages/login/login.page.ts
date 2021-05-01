@@ -48,21 +48,27 @@ export class LoginPage implements OnInit {
 
     if (!(this.login.userName === null && this.login.userName === undefined)) {
       this.authenticationService.login(this.login).subscribe(
-        (res: any) => {
-          console.log(res)
-          if (res){
-            this.authenticationService.doLoginUser(res, this.login.password);
+        async (res: any) => {
+          if (res.authenticated){
+            console.log('res login', res)
+            await this.authenticationService.doLoginUser(res, this.login.password);
             this.menuCtrl.enable(true);
             this.toastService.showInfo('Login com sucesso : ' +  res.userName );
-            console.log('first login',  res.firstLogin);
             
             if (parseInt(res.firstLogin) == 1)
             {
               this.router.navigate(['rgpd']);  
             }
             else{
-              this.router.navigate(['dashboard']);
+              let TIME_IN_MS = 1000;
+              setTimeout(() => {
+                this.router.navigate(['dashboard']);
+              }, TIME_IN_MS);
+      
             }
+          }
+          else{
+            this.toastService.showError('Palavra chave ou Utilizador Inválido');
           }
         },
         (error: any) => {

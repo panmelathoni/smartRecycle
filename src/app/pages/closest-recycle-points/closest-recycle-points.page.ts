@@ -55,6 +55,7 @@ export class ClosestRecyclePointsPage implements OnInit {
     this.recycleService.getClosestRecyclePoints(this.userId).subscribe(
       success => {
         this.locals = success;
+        console.log('locais', this.locals )
         this.loadMap();
       },
       err => this.toastService.showError(err.message)

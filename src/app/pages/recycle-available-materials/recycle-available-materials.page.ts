@@ -17,6 +17,7 @@ export class RecycleAvailableMaterialsPage implements OnInit {
 
   ngOnInit() {
     this.userId = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
+    console.log('user id material', this.userId)
     this.getAvailableMaterials();
   }
 
@@ -34,6 +35,19 @@ export class RecycleAvailableMaterialsPage implements OnInit {
     this.recycleService.requestAvailableMaterial(item).subscribe(
       success => {
         this.toastService.showSuccess("Material Requisitado com sucesso");
+        this.getAvailableMaterials();
+      },
+      err => this.toastService.showError(err.message)
+    )
+  }
+
+  confirmTakeOut(item){
+    item.requestCompanyId = this.userId;
+    console.log('confirmar retirada de material', item)
+
+    this.recycleService.confirmTakeOutMaterial(item.recycleHistoryId).subscribe(
+      success => {
+        this.toastService.showSuccess("Confirmação de Retirada feita com sucesso");
         this.getAvailableMaterials();
       },
       err => this.toastService.showError(err.message)

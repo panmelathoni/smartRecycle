@@ -106,16 +106,16 @@ private readonly JWT_TOKEN = 'JWT_TOKEN';
     return localStorage.getItem(this.JWT_TOKEN);
   }
 
-  doLoginUser(user: Login, password: string) {
+  async doLoginUser(user: Login, password: string) {
     this.loggedUser = user.userName;
-    this.storageService.saveStorage(AuthConstants.AUTH, user.userId);
-    this.storageService.saveStorage(AuthConstants.AUTH_PASS, password);
-    this.storageService.saveStorage(AuthConstants.AUTH_NAME, user.userName);
-    this.storageService.saveStorage(AuthConstants.AUTH_ROLE, user.role);
-    this.storageService.saveStorage(AuthConstants.AUTH_FIRST_LOGIN, user.firstLogin);
-    this.storageService.saveToken(user.accessToken);
+    await this.storageService.saveStorage(AuthConstants.AUTH, user.userId);
+    await this.storageService.saveStorage(AuthConstants.AUTH_PASS, password);
+    await this.storageService.saveStorage(AuthConstants.AUTH_NAME, user.userName);
+    await this.storageService.saveStorage(AuthConstants.AUTH_ROLE, user.role);
+    await this.storageService.saveStorage(AuthConstants.AUTH_FIRST_LOGIN, user.firstLogin);
+    await this.storageService.saveToken(user.accessToken);
 
-    this.storeTokens(user);
+    await this.storeTokens(user);
   }
 
   private doLogoutUser() {
