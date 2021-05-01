@@ -21,6 +21,9 @@ export class DashboardPage implements OnInit {
     this.user.userId = JSON.parse(unescape(atob(localStorage.getItem(AuthConstants.AUTH))));
     this.authenticationService.getUserById(this.user.userId).subscribe((res) => {
         this.user = res;
+        console.log('user logged', this.user)
     })
   }
+
+  
 }

@@ -105,7 +105,11 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       }
     ]
+  },  {
+    path: 'schedule',
+    loadChildren: () => import('./pages/schedule/schedule.module').then( m => m.SchedulePageModule)
   }
+
 ];
 
 @NgModule({

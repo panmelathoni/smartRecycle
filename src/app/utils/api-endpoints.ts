@@ -51,5 +51,7 @@
     public static readonly getAvailableMaterial =  '/recycle/webapi/v1/Recycle/GetAvailableMaterial/';
     public static readonly requestMaterial =  '/recycle/webapi/v1/Recycle/RequestAvailableMaterial';
     public static readonly updateBonus =  '/recycle/webapi/v1/Bonus/DebitUserBonus';
+    public static readonly confirmTakeOutMaterial =  '/recycle/webapi/v1/Recycle/ConfirmTakeOut';
+
 
 }

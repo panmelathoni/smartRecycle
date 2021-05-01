@@ -1,0 +1,43 @@
+
+.font-text{
+  font-weight: 500;
+  font-size: small;
+}
+.font-header-text{
+    font-weight: 600;
+    font-size: small;
+  }
+
+.no-space{
+  margin: 0px;
+  padding: 0px;
+}
+
+.border{
+ border-style: groove;
+}
+
+.style-status{
+  margin-top: 10px;
+    text-align: end;
+    margin-right: 5px;
+}
+
+.card-margin{
+    margin-top: 5px;
+  }
+
+.header-row-style{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-bottom-style: ridge;
+    background-color: lightgray;
+}
+
+.row-style{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-bottom-style: ridge;
+}
