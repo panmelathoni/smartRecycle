@@ -6,6 +6,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { RecycleService } from 'src/app/services/recycle.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { AuthConstants } from 'src/app/utils/auth-constants';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
 
 
 declare var google: any;
@@ -38,7 +39,8 @@ export class ClosestRecyclePointsPage implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
     private recycleService: RecycleService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private launchNavigator: LaunchNavigator
   ) {
   }
 
@@ -55,7 +57,6 @@ export class ClosestRecyclePointsPage implements OnInit {
     this.recycleService.getClosestRecyclePoints(this.userId).subscribe(
       success => {
         this.locals = success;
-        console.log('locais', this.locals )
         this.loadMap();
       },
       err => this.toastService.showError(err.message)
@@ -99,5 +100,18 @@ export class ClosestRecyclePointsPage implements OnInit {
     this.locals.forEach(item => {
       this.addMarker(this.map, item.latitude, item.longitude, item.localDescription, false)
     })
+  }
+
+  takeMeThere(local)
+  {
+    let options: LaunchNavigatorOptions = {
+      start: `${this.user.latitude} ${this.user.longitude}`,
+      app: 'launchnavigator.APP.GOOGLE_MAPS'
+    };
+    this.launchNavigator.navigate(`${local.latitude} ${local.longitude}`, options)
+      .then(
+        success => console.log('Launched navigator'),
+        error => console.log('Error launching navigator', error)
+      );
   }
 }

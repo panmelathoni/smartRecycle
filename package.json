@@ -33,6 +33,7 @@
     "@ionic-native/file-transfer": "^5.31.1",
     "@ionic-native/geolocation": "^5.0.0-beta.14",
     "@ionic-native/image-picker": "^5.31.1",
+    "@ionic-native/launch-navigator": "^5.32.1",
     "@ionic-native/media": "^5.31.1",
     "@ionic-native/media-capture": "^5.31.1",
     "@ionic-native/native-geocoder": "^5.31.1",
@@ -54,6 +55,7 @@
     "rxjs": "~6.5.5",
     "rxjs-compat": "^6.6.3",
     "tslib": "^2.0.0",
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": "^5.0.5",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
