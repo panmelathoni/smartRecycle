@@ -5,6 +5,8 @@ export class Material {
   materialPhoto: string;
   materialDescription: string;
   materialName: string;
+  materialCategory: string;
+  bonusQuantity: number;
   createdBy: string;
   updatedBy: string;
   createdOn: string;

@@ -11,6 +11,7 @@ export class UserInformation {
   country: string;
   latitude: number;
   longitude: number;
+  loginTimes: number;
   createdBy: string;
   updatedBy: string;
   createdOn: string;
