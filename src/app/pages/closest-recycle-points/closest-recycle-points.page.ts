@@ -105,10 +105,9 @@ export class ClosestRecyclePointsPage implements OnInit {
   takeMeThere(local)
   {
     let options: LaunchNavigatorOptions = {
-      start: `${this.user.latitude} ${this.user.longitude}`,
-      app: 'launchnavigator.APP.GOOGLE_MAPS'
+      start: `${this.user.latitude}, ${this.user.longitude}`
     };
-    this.launchNavigator.navigate(`${local.latitude} ${local.longitude}`, options)
+    this.launchNavigator.navigate(`${local.latitude}, ${local.longitude}`, options)
       .then(
         success => console.log('Launched navigator'),
         error => console.log('Error launching navigator', error)
