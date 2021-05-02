@@ -24,6 +24,7 @@ import { MediaCapture } from '@ionic-native/media-capture/ngx';
 import { Media } from '@ionic-native/media/ngx';
 import { StreamingMedia } from '@ionic-native/streaming-media/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
+import { LaunchNavigator } from '@ionic-native/launch-navigator/ngx';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
     Geolocation,
     NativeGeocoder,
     DatePipe,
+    LaunchNavigator, 
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     HttpClient,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

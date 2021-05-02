@@ -17,8 +17,11 @@
       <ion-col size="2" class="column-align">
         <span class="column-text">Distância</span>
       </ion-col>
-      <ion-col size="7" class="column-align">
+      <ion-col size="5" class="column-align">
         <span class="column-text">Descrição</span>
+      </ion-col>
+      <ion-col size="2" class="column-align">
+        <span class="column-text">Ir</span>
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let local of locals" class="row-grid-style">
@@ -32,10 +35,15 @@
           {{local.distanceFromUser}}
         </ion-label>
       </ion-col>
-      <ion-col size="7" class="column-align">
+      <ion-col size="5" class="column-align">
         <ion-label>
            {{local.localDescription}}
         </ion-label>
+      </ion-col>
+      <ion-col size="2" class="column-align">
+        <ion-button size="small" type="button" color="primary" (click)="takeMeThere(local)">
+          <ion-icon name="navigate-circle-outline"></ion-icon>
+        </ion-button>
       </ion-col>
     </ion-row>
 </ion-grid>
