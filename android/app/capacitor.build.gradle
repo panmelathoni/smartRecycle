@@ -12,6 +12,7 @@ dependencies {
 
     implementation "com.android.support:support-v4:27.+"
     implementation "com.android.support:appcompat-v7:27.+"
+    implementation "com.squareup.okhttp3:okhttp:3.12.0"
 }
 apply from: "../../node_modules/com-sarriaroman-photoviewer/src/android/photoviewer.gradle"
 apply from: "../../node_modules/cordova-android-support-gradle-release/cordova-android-support-gradle-release.gradle"
