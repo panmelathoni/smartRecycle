@@ -55,8 +55,8 @@
 
       </ion-item>
       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-        <div *ngIf="f.password.errors.required">Palavra-chave Requirida</div>
-        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        <div *ngIf="f.password.errors.required">Palavra-Chave Requirida</div>
+        <div *ngIf="f.password.errors.minlength">Palavra-Chave deve conter ao menos 6 caracteres</div>
       </div>
 
       <ion-item lines="none">
@@ -70,7 +70,7 @@
       </ion-item>
       <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
         <div *ngIf="f.confirmPassword.errors.required">Confirmação Palavra-Chave Requirida</div>
-        <div *ngIf="f.confirmPassword.errors.mustMatch">Palavra Chave e Confirmação devem ser iguais</div>
+        <div *ngIf="f.confirmPassword.errors.mustMatch">Palavra-Chave e Confirmação devem ser iguais</div>
       </div>
     </ion-list>
 

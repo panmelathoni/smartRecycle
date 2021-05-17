@@ -116,7 +116,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row *ngIf="user.userRole == 'Company'">
+    <ion-row *ngIf="user.userRole != 'Citzen'">
       <ion-col col-6 class="no-space">
         <ion-card class="card-layout" text-center padding color="light" routerLink="/recycle-available-materials">
           <ion-card-header class="card-header">

@@ -16,7 +16,7 @@
       <h2 class="available-content">Logins: {{user.loginTimes}} </h2>
       <ion-row class="padding-top-button">
         <ion-button size="small" type="button" color="primary" (click)="changePassState()">
-          <ion-icon name="key-outline" class="icon-padding"></ion-icon> Alterar Palavra Chave
+          <ion-icon name="key-outline" class="icon-padding"></ion-icon> Alterar Palavra-Chave
         </ion-button>
       </ion-row>
     </ion-label>
@@ -29,13 +29,13 @@
       </ion-item>
 
       <ion-item>
-        <ion-label position="stacked">Old Password</ion-label>
+        <ion-label position="stacked">Palavra-Chave Antiga</ion-label>
         <ion-input autocomplete="off" type="password" name="oldpassword" [(ngModel)]="userPassword.oldpassword">
         </ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="stacked">Password</ion-label>
+        <ion-label position="stacked">Palavra-Chave Nova</ion-label>
         <ion-input autocomplete="off" type="password" name="newpassword" [(ngModel)]="userPassword.newpassword">
         </ion-input>
       </ion-item>

@@ -65,7 +65,7 @@ export class MyProfilePage implements OnInit {
 
   changePassword() {
     if (!this.checkPassword()) {
-      this.toastService.showInfo('Palavra chave antiga incorreta');
+      this.toastService.showInfo('Palavra-Chave antiga incorreta');
       return;
     }
 
@@ -77,11 +77,11 @@ export class MyProfilePage implements OnInit {
         (res: any) => {
             this.storageService.saveStorage(AuthConstants.AUTH_PASS, this.updatePassword.password);
             this.storageService.saveStorage(AuthConstants.AUTH_NAME, this.updatePassword.userName);
-            this.toastService.showSuccess('Palavra chave alterada com sucesso');
+            this.toastService.showSuccess('Palavra-Chave alterada com sucesso');
             this.changePassState();
         },
         (error: any) => {
-          this.toastService.showError('Erro ao alterar palavra chave');
+          this.toastService.showError('Erro ao alterar Palavra-Chave');
           console.log('Network Issue.');
         }
       );

@@ -68,7 +68,7 @@ export class LoginPage implements OnInit {
             }
           }
           else{
-            this.toastService.showError('Palavra chave ou Utilizador Inválido');
+            this.toastService.showError('Palavra-Chave ou Utilizador Inválido');
           }
         },
         (error: any) => {
