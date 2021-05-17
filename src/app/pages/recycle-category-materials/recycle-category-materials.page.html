@@ -1,9 +1,9 @@
 <app-header [displayMenu]="true"></app-header>
 <ion-content>
   <ion-toolbar color="info">
-    <ion-title size="small">Materiais de Reciclagem</ion-title>
-    <ion-searchbar animated placeholder="Pesquisar Material" (ionChange)="search($event)"></ion-searchbar>
+    <ion-title size="small" style="padding-top: 10px;">Materiais de Reciclagem</ion-title>
   </ion-toolbar>
+  <ion-searchbar animated placeholder="Pesquisar Material" (ionChange)="search($event)"></ion-searchbar>
   <ion-grid *ngIf="materials.length <= 0">
     <ion-row>
       <ion-card text-center class="card-padding">
